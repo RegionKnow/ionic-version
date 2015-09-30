@@ -1,0 +1,33 @@
+<ion-view >
+
+<ion-content >
+<ion-header><h3 class="title">Create a question</h3></ion-header>
+
+
+
+<form class="list" ng-submit="vm.createQuestion()">
+
+	<label class="item item-input">
+		<input type="text" class="form-control" placeholder="Type Question Here..."/>
+	</label>
+	
+	<div class="text-center">
+		<br/>
+		<button type="submit" class="button button-balanced">
+			Post Question
+		</button>
+
+		<a href="#/questionsFeed">
+			<button type="submit" class="button button-balanced">
+				See Questions
+			</button>
+		</a>
+
+	</div>
+
+</form>
+
+
+
+</ion-content>
+</ion-view>
