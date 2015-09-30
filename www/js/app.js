@@ -38,14 +38,10 @@ function Config($stateProvider, $urlRouterProvider) {
   .state('Register',{
     url: '/register',
     templateUrl: 'templates/register.html'
-    // controller: 'UserController',
-    // controllerAs: 'vm'
   })
   .state('Login',{
     url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'UserController',
-    controllerAs: 'vm'
+    templateUrl: 'templates/login.html'
   })
   .state('QuestionsFeed',{
     url: '/questionsFeed',
