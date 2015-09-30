@@ -18,13 +18,10 @@
 
 		vm.loginUser = function() {
 			UserFactory.loginUser(vm.user).then(function(){
-				console.log(vm.user);
 				vm.status = $rootScope._user;
-				console.log(vm.status);
 				$state.go("QuestionsFeed");
 			});
 		};
-
 
 		vm.logoutUser = function() {
 			UserFactory.logoutUser().then(function(){

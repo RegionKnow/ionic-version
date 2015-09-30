@@ -11,8 +11,9 @@
 <ion class="ion-image" style="font-size:6em;"></ion>
 
 <ion class="item">
-	<a href="#/login"><button class="button button-balanced">Login</button></a>
-	<a href="#/register"><button class="button button-calm">Register</button></a>
+	<a href="#/login"><button ng-hide="vm.status" class="button button-balanced">Login</button></a>
+	<a href="#/register"><button ng-hide="vm.status" class="button button-calm">Register</button></a>
+	<button ng-click="vm.logoutUser()" ng-hide="!vm.status" class="button">Logout</button>
 </ion>
 
 </ion-content>

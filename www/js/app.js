@@ -25,9 +25,7 @@ function Config($stateProvider, $urlRouterProvider) {
   })
   .state('UserProfile', {
     url: '/userProfile',
-    templateUrl: 'templates/userProfile.html',
-    controller: "UserController",
-    controllerAs: "vm"
+    templateUrl: 'templates/userProfile.html'
   })
   .state('EditProfile',{
     url: '/editProfile',
