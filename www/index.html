@@ -1,38 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="lib/angular-material/angular-material.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/angular-material/angular-material.js"></script>
+  <script src="lib/angular-animate/angular-animate.js"></script>
+  <script src="lib/angular-aria/angular-aria.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/controllers/HomeController.js"></script>
-  </head>
-  <body ng-app="regiknow">
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers/HomeController.js"></script>
+</head>
 
-    <ion-pane>
-      <ion-header-bar class="bar-dark">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content class='padding' ng-controller="HomeController as vm">
-        <h1>Something should display under this if cotroller is working</h1>
-        <p>{{vm.sample}}</p>
-       <button ng-click="vm.sample= vm.sample == 'Hello'? 'Changed' : 'Hello'" class="button button-small button-block button-assertive">Change</button>
-      </ion-content>
-    </ion-pane>
-  </body>
+<body ng-app="regiknow">
+
+  <ion-pane>
+    <ion-header-bar class="bar-dark">
+      <h1 class="title">Ionic Blank Starter</h1>
+    </ion-header-bar>
+
+
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Sidenav Left</h1>
+      </md-toolbar>
+      <md-content ng-controller="HomeController as vm" layout-padding>
+        <form>
+          <md-input-container>
+            <label for="testInput">Test input</label>
+            <input type="text" id="testInput" ng-model="vm.data" md-autofocus>
+          </md-input-container>
+        </form>
+        <md-button ng-click="vm.close()" class="md-accent md-raised">Close Sidenav Left</md-button>
+      </md-content>
+    </md-sidenav>
+
+
+
+    <ion-content class='padding' ng-controller="HomeController as vm">
+      <p>Something should display under this if cotroller is working</p>
+      <h3>{{vm.sample}}</h3>
+      <md-button ng-click="vm.sample= vm.sample == 'Hello'? 'Changed' : 'Hello'" class=" md-primary md-raised">Change</md-button>
+      <md-button ng-click="vm.toggleLeft()" class="md-accent md-raised">Toggle left</md-button>
+    </ion-content>
+  </ion-pane>
+</body>
+
 </html>
