@@ -31,7 +31,7 @@
 		}
 		o.addIdRef = function(Answer_id, id){
 			var q = $q.defer();
-			$http.post('http://localhost:3000/api/question/create' + id, Answer_id).success(function(res){
+			$http.post('http://localhost:3000/api/question/' + id, Answer_id).success(function(res){
 				q.resolve();
 			})
 			return q.promise;
