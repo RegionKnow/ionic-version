@@ -1,11 +1,11 @@
 <ion-view >
 
-<ion-content >
+<ion-content ng-controller="UserController as vm">
 <ion-header><h3 class="title">Register!</h3></ion-header>
 
 
 
-<form class="list" ng-submit="vm.registerUser()">
+<ion class="list">
 
 	<label class="item item-input">
 		<input type="text" class="form-control" placeholder="Username..." ng-model="vm.user.username"/>
@@ -23,16 +23,13 @@
 		<input type="password" placeholder="Confirm Password..." class="form-control"/>
 	</label>
 
-	<div class="text-center">
-		<br/>
-		<button type="submit" class="button button-balanced">
-			Register
-		</button>
-
-	</div>
-</form>
+	
+</ion>
 
 
+<div ng-click="vm.registerUser()" class="bar bar-balanced">
+	<h3 class="title">Register</h3>
+</div>
 
 </ion-content>
 </ion-view>
