@@ -1,0 +1,30 @@
+<ion-view >
+
+<ion-content >
+<ion-header><h3 class="title">Login!</h3></ion-header>
+
+
+
+<form class="list" ng-submit="vm.loginUser()">
+
+	<label class="item item-input">
+		<input type="text" class="form-control" placeholder="Username..." ng-model="vm.user.username"/>
+	</label>
+
+	<label class="item item-input">
+		<input type="password" class="form-control" placeholder="Password..." ng-model="vm.user.password"/>
+	</label>
+
+	<div class="text-center">
+		<br/>
+		<button type="submit" class="button button-balanced">
+			Login
+		</button>
+
+	</div>
+</form>
+
+
+
+</ion-content>
+</ion-view>

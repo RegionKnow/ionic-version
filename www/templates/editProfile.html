@@ -1,0 +1,38 @@
+<ion-view >
+
+<ion-content >
+<ion-header><h3 class="title">Edit</h3></ion-header>
+
+
+
+<form class="list" ng-submit="vm.editProfile()">
+
+	<label class="item item-input">
+		<input type="text" class="form-control" placeholder="Username..." ng-model="vm.user.username"/>
+	</label>
+
+	<label class="item item-input">
+		<input type="email" class="form-control" placeholder="Email..." ng-model="vm.user.email"/>
+	</label>
+
+	<label class="item item-input">
+		<input type="password" class="form-control" placeholder="Password..." ng-model="vm.user.password"/>
+	</label>
+
+	<label class="item item-input">
+		<input type="password" placeholder="Confirm Password..." class="form-control"/>
+	</label>
+
+	<div class="text-center">
+		<br/>
+		<button type="submit" class="button button-balanced">
+			Submit Edit
+		</button>
+
+	</div>
+</form>
+
+
+
+</ion-content>
+</ion-view>
