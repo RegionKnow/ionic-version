@@ -1,14 +1,23 @@
 <ion-view class="text-center">
-<ion-content>
+<ion-content ng-controller="CreateQuestionController as vm">
 
-<ion-header><h3 class="title">Questions</h3></ion-header>
+<ion-header><h3 class="title">Questions Feed</h3></ion-header>
 
 <label class="item item-input">
 	<input type="text" class="form-control" placeholder="Search Questions..."/>
 </label>
 
-<a href="#/createQuestions"><button class="button button-calm">Create a Question</button></a>
+<a href="#/createQuestions"><button class="button button-calm">Post a Question</button></a>
 
+<ion ng-repeat="q in vm.allquestions | filter:vm.search " ng-show="q.isDeleted != true">
+
+	<a ui-sref="QuestionDetail({id: q._id})">
+		<div class="well">
+			{{q.questionBody}}
+		</div>
+	</a>
+
+</ion>
 
 </ion-content>
 </ion-view>

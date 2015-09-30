@@ -1,0 +1,19 @@
+<ion-view class="text-center">
+<ion-content ng-controller="QuestionAnswerController as vm">
+
+<ion-header><h3 class="title">Question Detail</h3></ion-header>
+
+<h1>{{vm.question.questionBody}}</h1>
+<br>
+
+<button ng-if="vm.status.id === vm.question.postedBy && !vm.options" ng-click="vm.showOptions()">Options</button>
+
+<ion ng-if="vm.options">
+	<button class="button-energized" ng-click="vm.editQuestion()">Edit</button>
+	<button class="button-assertive" ng-click="vm.deleteQuestion(vm.question._id)">Delete</button>
+	<button class="button-stable" ng-click="vm.hideOptions()" >close</button>
+</ion>
+
+
+</ion-content>
+</ion-view>

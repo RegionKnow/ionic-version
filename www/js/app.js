@@ -29,9 +29,7 @@ function Config($stateProvider, $urlRouterProvider) {
   })
   .state('EditProfile',{
     url: '/editProfile',
-    templateUrl: 'templates/editProfile.html',
-    controller: 'UserController',
-    controllerAs: 'vm'
+    templateUrl: 'templates/editProfile.html'
   })
   .state('Register',{
     url: '/register',
@@ -43,15 +41,15 @@ function Config($stateProvider, $urlRouterProvider) {
   })
   .state('QuestionsFeed',{
     url: '/questionsFeed',
-    templateUrl: 'templates/questionsFeed.html',
-    controller: 'QuestionsController',
-    controllerAs: 'vm'
+    templateUrl: 'templates/questionsFeed.html'
+  })
+  .state('QuestionDetail',{
+    url: '/questionDetail/:id',
+    templateUrl: 'templates/questionDetail.html'
   })
   .state('CreateQuestion',{
     url: '/createQuestion',
-    templateUrl: 'templates/createQuestion.html',
-    controller: 'QuestionsController',
-    controllerAs: 'vm'
+    templateUrl: 'templates/createQuestion.html'
   });
 
   $urlRouterProvider.otherwise('/myApp');
