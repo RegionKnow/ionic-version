@@ -47,7 +47,7 @@
 		o.loginUser = function(user) {
 			var q = $q.defer();
 			user.username = user.username.toLowerCase();
-			$http.post('/api/user/login', user).success(function(res) {
+			$http.post('http://localhost:3000/api/user/login', user).success(function(res) {
 				setToken(res.token);
 				$rootScope._user = isLoggedIn();
 				console.log($rootScope._user)
@@ -69,7 +69,7 @@
 		o.getUserLoggedIn = function(userId){
 			console.log(userId);
 			var q = $q.defer();
-			$http.get('/api/user/' + userId).success(function(res){
+			$http.get('http://localhost:3000/api/user/' + userId).success(function(res){
 				q.resolve(res);
 			});
 			return q.promise;

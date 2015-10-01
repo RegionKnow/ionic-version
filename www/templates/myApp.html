@@ -1,15 +1,19 @@
 <ion-view class="text-center" >
 
-<ion-content >
+<ion-content ng-controller="UserController as vm" >
 
-<ion-header><h3 class="title">Welcome!</h3></ion-header>
+<ion-header><h3 class="title">Welcome {{vm.status.username}}!</h3>
+
+
+</ion-header>
 
 
 <ion class="ion-image" style="font-size:6em;"></ion>
 
 <ion class="item">
-	<a href="#/login"><button class="button button-balanced">Login</button></a>
-	<a href="#/register"><button class="button button-calm">Register</button></a>
+	<a href="#/login"><button ng-hide="vm.status" class="button button-balanced">Login</button></a>
+	<a href="#/register"><button ng-hide="vm.status" class="button button-calm">Register</button></a>
+	<button ng-click="vm.logoutUser()" ng-hide="!vm.status" class="button">Logout</button>
 </ion>
 
 </ion-content>

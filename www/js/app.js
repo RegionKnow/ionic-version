@@ -25,39 +25,35 @@ function Config($stateProvider, $urlRouterProvider) {
   })
   .state('UserProfile', {
     url: '/userProfile',
-    templateUrl: 'templates/userProfile.html',
-    controller: "UserController",
-    controllerAs: "vm"
+    templateUrl: 'templates/userProfile.html'
   })
   .state('EditProfile',{
     url: '/editProfile',
-    templateUrl: 'templates/editProfile.html',
-    controller: 'UserController',
-    controllerAs: 'vm'
+    templateUrl: 'templates/editProfile.html'
   })
   .state('Register',{
     url: '/register',
     templateUrl: 'templates/register.html'
-    // controller: 'UserController',
-    // controllerAs: 'vm'
   })
   .state('Login',{
     url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'UserController',
-    controllerAs: 'vm'
+    templateUrl: 'templates/login.html'
   })
   .state('QuestionsFeed',{
     url: '/questionsFeed',
-    templateUrl: 'templates/questionsFeed.html',
-    controller: 'QuestionsController',
-    controllerAs: 'vm'
+    templateUrl: 'templates/questionsFeed.html'
+  })
+  .state('QuestionDetail',{
+    url: '/questionDetail/:id',
+    templateUrl: 'templates/questionDetail.html'
   })
   .state('CreateQuestion',{
     url: '/createQuestion',
-    templateUrl: 'templates/createQuestion.html',
-    controller: 'QuestionsController',
-    controllerAs: 'vm'
+    templateUrl: 'templates/createQuestion.html'
+  })
+  .state('Messages',{
+    url: '/messaging',
+    templateUrl: 'templates/messaging.html'
   });
 
   $urlRouterProvider.otherwise('/myApp');
