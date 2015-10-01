@@ -1,10 +1,11 @@
 (function() {
-  angular.module('regiknow').controller("HomeController", HomeController);
-  HomeController.$inject = ['$scope', '$timeout', '$mdSidenav', '$mdUtil'];
+  angular.module('regiknow').controller("MDController", MDController);
+  MDController.$inject = ['$scope', '$timeout', '$mdSidenav', '$mdUtil'];
 
-  function HomeController($scope, $timeout, $mdSidenav, $mdUtil) {
+  function MDController($scope, $timeout, $mdSidenav, $mdUtil) {
     var vm = this;
     vm.sample = "Hello";
+    //MD Side Nav=======================================================================================================
     vm.toggleLeft = buildToggler('left');
 
     function buildToggler(navID) {
