@@ -39,10 +39,24 @@
 
 <div class="well" ng-repeat="a in vm.question.answers">
 	{{a.answerBody}}
+	
+	<ion>
+		<button class="button button-stable ion-edit" ng-show="!editAnswer" ng-click="editAnswer = true;"></button>
+		<br>
+		<ion ng-show="editAnswer">
+			<input ng-model="vm.AnswerObj.answerBody">
+			<br>
+			<button  class="button button-balanced ion-edit" ng-click="editAnswer = false"></button>
 
-	<ion ng-if="vm.status.id === vm.question.postedBy">
-		<button class="btn btn-warning btn-xs">Edit</button>
-		<button class="btn btn-danger btn-xs" ng-click="deleteAnswer()">Delete</button>
+			<button class="button button-assertive ion-trash-a" ng-click="editAnswer = false;"></button>
+
+			<button class="button button-dark ion-android-cancel" ng-click="editAnswer = false;"></button>
+
+		</ion>
+
+
+
+		
 	</ion>
 
 </ion>

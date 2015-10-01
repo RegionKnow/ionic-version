@@ -50,6 +50,10 @@ function Config($stateProvider, $urlRouterProvider) {
   .state('CreateQuestion',{
     url: '/createQuestion',
     templateUrl: 'templates/createQuestion.html'
+  })
+  .state('Messages',{
+    url: '/messaging',
+    templateUrl: 'templates/messaging.html'
   });
 
   $urlRouterProvider.otherwise('/myApp');
