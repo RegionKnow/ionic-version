@@ -1,0 +1,20 @@
+
+
+<ion-view class="text-center" >
+
+<ion-content ng-controller="UserController as vm" >
+
+<ion-header><h3 class="title">Hey, {{vm.status.username}}!</h3>
+
+
+</ion-header>
+
+
+<ion class="ion-image" style="font-size:6em;"></ion>
+
+<div>
+	<button ng-click="vm.logoutUser()" ng-hide="!vm.status" class="button button-outline button-dark">Logout</button>
+</div>
+
+</ion-content>
+</ion-view>

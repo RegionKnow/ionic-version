@@ -41,9 +41,11 @@
   <ion-side-menu-content>
   <ion-header-bar class="bar-dark">
 
-  <button class=" left button button-icon button-clear ion-navicon" ng-click="vm.toggleLeft()">
+  <button class="left button button-icon button-clear ion-navicon" ng-click="vm.toggleLeft()">
   </button>
+  
   <h1 class="title">RegionKnow</h1>
+
 
 </ion-header-bar>
 
@@ -59,13 +61,22 @@
 <h1 class="title">RegionKnow</h1>
 </ion-header-bar>
 
-<ion-content class="padding list">
+<ion-content class="list">
+
+<div class="row">
+  <div class="col"></div>
+  <div class="col" ng-controller="UserController as vm"><ion class="item ion-image" style="font-size:3em;"></ion>
+    <br>Hey {{vm.status.username}}
+  </div>
+  <div class="col"></div>
+</div>
 
 <a ui-sref="myApp" ng-click="vm.toggleLeft()" class="item ion-home">&nbsp; &nbsp; Welcome</a>
 <a ui-sref="Login" ng-click="vm.toggleLeft()" class="item ion-key"> &nbsp; &nbsp; Login</a>
 
 <a href="#/userProfile" ng-click="vm.toggleLeft()" class="item ion-person">&nbsp; &nbsp;Profile</a>
 <a href="#/createQuestion" ng-click="vm.toggleLeft()" class="item ion-ios-glasses">&nbsp; &nbsp;Ask/View Qs</a>
+<a ui-sref="Settings" ng-click="vm.toggleLeft()" class="item ion-gear-a">&nbsp; &nbsp;Settings</a>
 
 </ion-content>
 </ion-side-menu>
