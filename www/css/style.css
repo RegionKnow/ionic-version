@@ -1,1 +1,15 @@
 /* Empty. Add your own CSS if you like */
+
+.welcomePic {
+	background-image: url("https://s-media-cache-ak0.pinimg.com/736x/23/7b/e6/237be67444f3fc45daaa303135700428.jpg"); 
+	
+}
+
+.welcomePic h3 {
+	padding-top: 60%;
+	color:white;
+	font-weight: bolder;
+	font-size: 2.6em;
+	text-shadow: 1px 2px 2px black;
+}
+
