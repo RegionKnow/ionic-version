@@ -36,7 +36,17 @@ a {
 	margin-top: 1.7em;
 }
 
-.tagDiv{
+/*STYLING TAGS======================================================*/
+
+
+#tags {
+	display: inline-block;
+	box-shadow: 1px 2px 6px #333;
+	padding: 7px;
+	margin: 6px;
+}
+
+/*.tagDiv{
 	border-radius: 10px;
 	box-shadow: 50px; 
 }
@@ -53,3 +63,4 @@ a {
 .locateBtn {
 	margin-top: 1.6em;
 }
+*/

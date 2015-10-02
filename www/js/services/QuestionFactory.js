@@ -6,6 +6,8 @@
 	function QuestionFactory($q, $http, $window, $rootScope) {
 		var o = {};
 
+
+		//=============================QUESTION FUNCTIONALITY====================================
 		o.createQuestion = function(question){ // create the question
 			var q = $q.defer();
 			$http.post('http://localhost:3000/api/question/create', question).success(function(){
@@ -14,9 +16,9 @@
 			return q.promise;
 		}
 
-		o.findQuestions = function(){ // find all questions
+		o.findQuestions = function(id){ // find all questions
 			var q = $q.defer();
-			$http.get('http://localhost:3000/api/question').success(function(res){
+			$http.get('http://localhost:3000/api/question/allquestions/' + id).success(function(res){
 				q.resolve(res);
 			})
 			return q.promise;
@@ -50,6 +52,16 @@
 			})
 			return q.promise;
 		}
+
+		//=============================TAGS FUNCTIONALITY====================================
+		o.addTags = function(tags, question_id){
+			var q = $q.defer();
+			$http.post('http://localhost:3000/api/question/tags/' + question_id, tags).success(function(res){
+				q.resolve(res);
+			})
+			return q.promise;
+		}
+
 		return o;
 	}
 })();

@@ -6,6 +6,7 @@
 
 
 <ion class="list" >
+	<h5 class="title">1. Create your Question</h5>
 
 	<label class="item item-input">
 		<input type="text" class="form-control" placeholder="Type Question Here..." ng-model="vm.desc"/>
@@ -13,9 +14,26 @@
 	
 </ion>
 
+<ion class="list" >
+	<h5 class="title">2. Add tag(s) about your Question</h5>
+
+	<ion class="item item-input">
+		<input type="text" class="form-control" placeholder="Type tag Here..." ng-model="vm.tag"/>
+		<button class="button ion-checkmark-round button-balanced" ng-click="vm.addTag(vm.tag); showTags = true;"></button>
+	</ion>
+</ion>
+
+<div>	
+	<div id="tags" ng-show="showTags" ng-repeat="tag in vm.tags track by $index">
+		{{tag}}
+		<span ng-click="vm.deleteTag($index)" class="ion-close-round" aria-hidden="true">
+		</span>
+	</div>
+</div>
+
 <br/>
 <div ng-click="vm.createQ()" class="bar bar-balanced">
-	<h3 class="title">Post Question</h3>
+	<h3 class="title">3. Post Question with Tags</h3>
 </div>
 <br>
 <br>
