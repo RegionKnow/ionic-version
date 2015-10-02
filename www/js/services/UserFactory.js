@@ -52,9 +52,13 @@
 				$rootScope._user = isLoggedIn();
 				console.log($rootScope._user)
 				q.resolve();
+				o.status = $rootScope._user;
+				console.log("this is status" + o.status);
 			});
 			return q.promise;
 		};
+
+
 
 		o.logoutUser = function(){
 			var q = $q.defer()

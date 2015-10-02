@@ -10,5 +10,9 @@
 <ion>Email: {{vm.userLoggedIn.email}}</ion>
 
 
+<div>
+	<button ng-click="vm.logoutUser()" ng-hide="!vm.userLoggedIn" class="button button-outline button-dark button-small">Logout</button>
+</div>
+
 </ion-content>
 </ion-view>

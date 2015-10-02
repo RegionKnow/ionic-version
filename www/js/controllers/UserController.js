@@ -5,7 +5,6 @@
 		var vm = this;
 		vm.status = $rootScope._user;
 
-
 		//---------FUNCTIONALITY FORa REGISTER & LOGIN USER----------------------------------------------------------
 
 		vm.registerUser = function() {

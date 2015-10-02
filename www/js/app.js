@@ -55,9 +55,9 @@ function Config($stateProvider, $urlRouterProvider) {
     url: '/messaging',
     templateUrl: 'templates/messaging.html'
   })
-  .state('Settings',{
-    url: '/settings',
-    templateUrl: 'templates/settings.html'
+  .state('UserSettings',{
+    url: '/userSettings',
+    templateUrl: 'templates/userSettings.html'
   });
 
   $urlRouterProvider.otherwise('/myApp');

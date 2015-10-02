@@ -8,6 +8,7 @@
 	function ProfileController(UserFactory, $state, $rootScope) {
 		var vm = this;
 
+		
 	//-------------GET LOGGED IN USER-------------------------
 
 	if($rootScope._user) {
