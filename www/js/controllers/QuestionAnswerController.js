@@ -8,6 +8,7 @@
 		vm.AnswerObj = {};
 		vm.status = $rootScope._user
 
+
 		//Grabbing individual question from questions feed-----------------------------------
 		if(!$stateParams.id){
 			alert('no question found');
@@ -71,6 +72,7 @@
 				});
 			});
 		};
+
 		
 	}
 })();

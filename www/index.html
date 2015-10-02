@@ -55,11 +55,15 @@
     <h1 class="title" ng-show="vm.userSettings">User Settings</h1>
     <h1 class="title" ng-show="vm.login">Login</h1>
     <h1 class="title" ng-show="vm.profile">Profile</h1>
-    <h1 class="title" ng-show="vm.questions">Questions & Answers</h1>
+    <h1 class="title" ng-show="vm.questions">Questions</h1>
+    <h1 class="title" ng-show="vm.questionsFeed">Questions</h1>
+
   </div>
 
-  <button class="left button button-icon button-clear ion-ios-location" ng-click="vm.toggleLeft()">
-  </button>
+  <a ui-sref="QuestionsFeed" ng-click="vm.trueQsFeed()" class="left button button-icon button-clear ion-ios-location">
+  </a>
+
+  <!-- TOP NAV end============================================= -->
 
 
 </ion-header-bar>

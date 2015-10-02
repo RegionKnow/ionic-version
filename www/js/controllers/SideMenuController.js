@@ -36,6 +36,8 @@
         vm.login = false;
         vm.profile = false;
         vm.questions = false;
+        vm.questionsFeed = false;
+        
       };
 
       vm.trueLogin = function() {
@@ -44,6 +46,8 @@
         vm.login = true;
         vm.profile = false;
         vm.questions = false;
+        vm.questionsFeed = false;
+
       };
 
       vm.trueWelcome = function() {
@@ -52,6 +56,8 @@
         vm.login = false;
         vm.profile = false;
         vm.questions = false;
+        vm.questionsFeed = false;
+
       };
 
       vm.trueProfile = function() {
@@ -60,6 +66,7 @@
         vm.login = false;
         vm.profile = true;
         vm.questions = false;
+        vm.questionsFeed = false;
       };
 
       vm.trueQuestions = function() {
@@ -68,7 +75,19 @@
         vm.login = false;
         vm.profile = false;
         vm.questions = true;
+        vm.questionsFeed = false;
       };
+
+      vm.trueQsFeed = function() {
+        vm.userSettings = false;
+        vm.welcome = false;
+        vm.login = false;
+        vm.profile = false;
+        vm.questions = false;
+        vm.questionsFeed = true;
+      }
+
+      
       // vm.close = function() {
       //   $mdSidenav('left').close()
       //   .then(function() {

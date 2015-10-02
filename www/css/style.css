@@ -1,5 +1,10 @@
 /* Empty. Add your own CSS if you like */
 
+/*LINK STYLES============================================================*/
+a {
+	text-decoration: none;
+}
+
 /*STYLING FOR WELCOME PAGE AND TITLE FOR EACH STATE======================================================*/
 .welcomePic {
 	background-image: url("https://s-media-cache-ak0.pinimg.com/736x/23/7b/e6/237be67444f3fc45daaa303135700428.jpg"); 
