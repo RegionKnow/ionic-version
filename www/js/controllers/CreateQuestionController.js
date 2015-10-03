@@ -3,21 +3,23 @@
 	angular.module('regiknow')
 	.controller('CreateQuestionController', CreateQuestionController);
 
-	CreateQuestionController.$inject = ['$state', 'QuestionFactory', '$rootScope'];
+	CreateQuestionController.$inject = ['$state', 'QuestionFactory', '$rootScope', 'ionicMaterialInk'];
 
-	function CreateQuestionController($state, QuestionFactory, $rootScope) {
+	function CreateQuestionController($state, QuestionFactory, $rootScope, ionicMaterialInk) {
 		var vm = this;
 		var counter = 0;
 
 		vm.question = {};
 		vm.tag = "";
 
+		ionicMaterialInk.displayEffect();
+
 		vm.status = $rootScope._user //THIS IS THE USER THAT'S LOGGED IN
 		vm.tags = [];
-		
+
 		//=============CREATING & GETTING ALL QUESTIONS WITH ANSWERS=====================================
 		vm.getQuestions = function(){
-			QuestionFactory.findQuestions().then(function(res){
+			QuestionFactory.findQuestions(vm.status.id).then(function(res){
 				vm.allquestions = res;
 			});
 		};

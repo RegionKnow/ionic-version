@@ -3,10 +3,13 @@
 	angular.module('regiknow')
 	.controller('MessagingController', MessagingController);
 
-	MessagingController.$inject = ['$http'];
+	MessagingController.$inject = ['$http', 'ionicMaterialInk'];
 
-	function MessagingController($http) {
+	function MessagingController($http, ionicMaterialInk) {
 		var vm = this;
+
+		ionicMaterialInk.displayEffect();
+
 
 		vm.title = 'Messaging - RegionKnow';
 		vm.button = "Test call button";

@@ -8,6 +8,25 @@
 	function UserSettingsFactory($http, $q) {
 		var o = {};
 
+		//============FILTERING ON OR OFF FOR QUESTION CATEGORIES==============================
+		o.filterOn = function(id){
+			var q = $q.defer();
+			$http.post('http://localhost:3000/api/user/filterOn/' + id).success(function(res){
+				q.resolve();
+			})
+			return q.promise;
+		}
+
+		o.filterOff = function(id){
+			var q = $q.defer();
+			$http.post('http://localhost:3000/api/user/filterOff/' + id).success(function(res){
+				q.resolve();
+			})
+			return q.promise;
+		}
+
+		//============TAGS FUNCTIONALITY==============================
+
 		o.addTags = function(tags, id){
 			console.log(tags, id)
 			var q = $q.defer();
@@ -30,6 +49,8 @@
 			})
 			return q.promise;
 		}
+
+		//============LOCATION FUNCTIONALITY==============================
 
 		o.getLocation = function(){
 			var key = 'AIzaSyDEQ3oCFj1hp7uqTeb8YLmXYrgtmQk-KmM'

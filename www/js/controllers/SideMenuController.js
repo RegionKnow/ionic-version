@@ -10,9 +10,9 @@
 
     vm.welcome = true;
 
+
       //MD Side Nav=======================================================================================================
       vm.toggleLeft = function() {
-        console.log("toggle left is running from what you just clicked!")
         $ionicSideMenuDelegate.toggleLeft();
       };
 

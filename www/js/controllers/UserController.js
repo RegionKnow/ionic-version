@@ -1,9 +1,13 @@
 (function() {
 	angular.module('regiknow').controller("UserController", UserController);
-	UserController.$inject = ['UserFactory', '$state', '$rootScope'];
-	function UserController(UserFactory, $state, $rootScope){
+	UserController.$inject = ['UserFactory', '$state', '$rootScope', 'ionicMaterialInk'];
+	function UserController(UserFactory, $state, $rootScope, ionicMaterialInk){
 		var vm = this;
 		vm.status = $rootScope._user;
+
+
+		ionicMaterialInk.displayEffect();
+
 
 		//---------FUNCTIONALITY FORa REGISTER & LOGIN USER----------------------------------------------------------
 

@@ -2,17 +2,15 @@
 
 <ion-content ng-controller="UserController as vm" >
 
-<ion-header><h3 class="title">Welcome {{vm.status.username}}!</h3>
+<ion-header><h3>Welcome {{vm.status.username}}!</h3>
 
 
 </ion-header>
 
-
-
 <h1 class="col">
-	<a href="#/questionsFeed"><button ng-hide="!vm.status" class="button button-light">Ask or view questions</button></a>
-	<a href="#/login"><button ng-hide="vm.status" class="button button-light">Login</button></a>
-	<a href="#/register"><button ng-hide="vm.status" class="button button-balanced">Register</button></a>
+	<a href="#/questionsFeed"><button ng-hide="!vm.status" class="button button-raised button-balanced ink">Ask or view questions</button></a>
+	<a href="#/login"><button ng-hide="vm.status" class="button button-raised button-light ink">Login</button></a>
+	<a href="#/register"><button ng-hide="vm.status" class="button button-raised button-balanced ink">Register</button></a>
 </h1>
 
 

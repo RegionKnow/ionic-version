@@ -5,6 +5,34 @@ a {
 	text-decoration: none;
 }
 
+/*======================*/
+.custom-icon {
+	color: #33CD5F;
+	font-size: 3em;
+	z-index: 1;
+	margin-top: -.2em;
+	margin-left: .1em;
+}
+
+.ion-keys  {
+	font-size: 1.3em;
+}
+
+#mainLogo {
+	width: 79px;
+}
+
+.naviBar h1 {
+	color: white;
+	font-size: 1.3em;
+	text-align: center;
+	margin: auto;
+}
+
+.navTitles {
+	color: #333;
+	font-size: 1.3em;
+}
 /*STYLING FOR WELCOME PAGE AND TITLE FOR EACH STATE======================================================*/
 .welcomePic {
 	background-image: url("https://s-media-cache-ak0.pinimg.com/736x/23/7b/e6/237be67444f3fc45daaa303135700428.jpg"); 
@@ -15,8 +43,8 @@ a {
 	padding-top: 60%;
 	color:white;
 	font-weight: bolder;
-	font-size: 2.6em;
-	text-shadow: 1px 2px 2px black;
+	font-size: 2.7em;
+	text-shadow: 1px 3px 3px #000;
 }
 
 
@@ -46,21 +74,3 @@ a {
 	margin: 6px;
 }
 
-/*.tagDiv{
-	border-radius: 10px;
-	box-shadow: 50px; 
-}
-
-.indvTag {
-	border-width: 3px;
-	border-color: #000000;
-	padding-left: 15px;
-	color:#2F5D92; 
-	background-color:#E0EDF5; 
-	display: inline; 
-}
-
-.locateBtn {
-	margin-top: 1.6em;
-}
-*/

@@ -3,65 +3,99 @@
 	angular.module('regiknow')
 	.controller('UserSettingsController', UserSettingsController);
 
-	UserSettingsController.$inject = ['$http', '$stateParams', 'UserSettingsFactory', '$rootScope'];
+	UserSettingsController.$inject = ['$http', '$stateParams', 'UserSettingsFactory', '$rootScope', 'ionicMaterialInk'];
 
-	function UserSettingsController($http, $stateParams, UserSettingsFactory, $rootScope) {
+	function UserSettingsController($http, $stateParams, UserSettingsFactory, $rootScope, ionicMaterialInk) {
 		var vm = this;
+
+		ionicMaterialInk.displayEffect();
+		
 		var userId = $rootScope._user.id;//we are using this instead state Params==================
+		var counter = 0;
 
-		vm.tag = "";
-		getTags(); // gets all tags when user loads settings
-		vm.homeLocation = {};
-		vm.currentLocation = {};
-		var counter = 0
-		// vm.distance = 0;
-		vm.infoWindow = new google.maps.InfoWindow();
-		//funciton to get miles
-		function getMeters(miles) {
-			return miles*1609.344;
-		}
+		console.log("are you getting to UserSettingsController");
 
-		//////FUNCTIONS to deal with Tags
-		function getTags(){
-			UserSettingsFactory.getTags($stateParams.id).then(function(res){
-				vm.tags = res
-				console.log(vm.tags)
+
+		
+		//============FILTERING ON OR OFF FOR QUESTION CATEGORIES==============================
+		vm.filterOn = function(){
+			UserSettingsFactory.filterOn(userId).then(function(res){
+				console.log('filter Question is On');
 			})
 		}
-		vm.showTagInput = function(){
-			counter += 1
-			vm.showInput = true;
-			if(counter % 2 === 0){
-				vm.showInput = false;
-			}
-			console.log(vm.showInput)
+
+		vm.filterOff = function(){
+			UserSettingsFactory.filterOff(userId).then(function(res){
+				console.log('filter Question is Off');
+			})
 		}
+
+
+		//===============FUNCTIONS to deal with Tags============================================
+		getTags();
+		vm.tag = "";
+		function getTags(){
+			UserSettingsFactory.getTags(userId).then(function(res){
+				console.log(userId)
+				vm.tags = res;
+				console.log(vm.tags);
+			})
+		}
+
+		// vm.showTagInput = function(){
+		// 	counter += 1
+		// 	vm.showInput = true;
+		// 	if(counter % 2 === 0){
+		// 		vm.showInput = false;
+		// 	}
+		// 	console.log(vm.showInput)
+		// }
+
 		vm.addTag = function(tag){
+			vm.tagError = false;
 			if(tag == ""){
 				return 
 			}
-			vm.tags.push(tag)
-			vm.tag = ""
+			var split_tag = tag.split('')
+			console.log(split_tag)
+			for(var k= 0; k< split_tag.length; k++){
+				if(split_tag[k] == ' '){
+					vm.tagError = true;
+					return
+				}
+			}
+
+			vm.tags.push(tag.toLowerCase());
+			vm.tag = "";
 		}
+
+
 		vm.deleteTag = function(index){
 			vm.tags.splice(index, 1)
 		}
 
 		vm.saveTags = function(){
-			if(vm.tags.length === 0){
-				return
-			}
-			UserSettingsFactory.removeTags($stateParams.id).then(function(res){
-				UserSettingsFactory.addTags(vm.tags, $stateParams.id).then(function(res){
+			
+			UserSettingsFactory.removeTags(userId).then(function(res){
+				UserSettingsFactory.addTags(vm.tags, userId).then(function(res){
 					console.log('saved tags')
 				})
 			})
-			
 		}
-		//////////// MAP functions
+
+		//================ MAP functions ===================================================
+		
+		vm.homeLocation = {};
+		vm.currentLocation = {};
+		vm.infoWindow = new google.maps.InfoWindow();
+
+		//funciton to get miles=============================================================
+		function getMeters(miles) {
+			return miles*1609.344;
+		}
+
 		vm.openMap = function(){
 			vm.distanceSet = angular.copy(vm.distance)
-			// UserSettingsFactory.getMap()
 			vm.mapStatus = true;
 			UserSettingsFactory.getLocation().then(function(res){ // gets current location
 				console.log(res)
@@ -93,12 +127,10 @@
 					            getCircle(vm.homeLocation.lat, vm.homeLocation.lng);
 
 					        });
-				
-				
 			})
 
-
 }
+
 function getCircle(Pinlat, Pinlng){
 	vm.cityCircle = new google.maps.Circle({
 		strokeColor: '#FF0000',
@@ -129,7 +161,6 @@ function getCircle(Pinlat, Pinlng){
 			 	console.log(vm.homeLocation);
 			 })
 			}
-
 
 		}
 	})();

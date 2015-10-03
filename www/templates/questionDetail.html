@@ -4,14 +4,17 @@
 
 
 <h1>{{vm.question.questionBody}}</h1>
+<h1>{{vm.question.tags}}</h1>
 <br>
 
 <button ng-if="vm.status.id === vm.question.postedBy && !vm.options" ng-click="vm.showOptions()">Options</button>
 
 <ion ng-if="vm.options">
-	<button class="button-energized" ng-click="vm.editQuestion()">Edit</button>
-	<button class="button-assertive" ng-click="vm.deleteQuestion(vm.question._id)">Delete</button>
-	<button class="button-stable" ng-click="vm.hideOptions()" >close</button>
+
+	<button class="button-energized ink" ng-click="vm.editQuestion()">Edit</button>
+	<button class="button-assertive ink" ng-click="vm.deleteQuestion(vm.question._id)">Delete</button>
+	<button class="button-stable ink" ng-click="vm.hideOptions()" >close</button>
+	
 </ion>
 
 <br>
@@ -23,7 +26,7 @@
 
 		<br>
 
-		<button class="btn btn-defualt" ng-disabled="!vm.AnswerObj.answerBody" type="submit">
+		<button class="button button-balanced ink" ng-disabled="!vm.AnswerObj.answerBody" type="submit">
 			Submit Answer
 		</button>
 	</form>
@@ -41,16 +44,16 @@
 	{{a.answerBody}}
 	
 	<ion >
-		<button class="ion-edit text-right" ng-show="!editAnswer" ng-click="editAnswer = true;"></button>
+		<button class="ion-edit text-right ink" ng-show="!editAnswer" ng-click="editAnswer = true;"></button>
 		<br>
 		<ion ng-show="editAnswer">
 			<input ng-model="vm.AnswerObj.answerBody">
 			<br>
-			<button  class="button button-balanced ion-edit" ng-click="editAnswer = false"></button>
+			<button  class="button button-balanced ion-edit ink" ng-click="editAnswer = false"></button>
 
-			<button class="button button-assertive ion-trash-a" ng-click="editAnswer = false;"></button>
-			
-			<button class="button button-dark ion-android-cancel" ng-click="editAnswer = false;"></button>
+			<button class="button button-assertive ion-trash-a ink" ng-click="editAnswer = false;"></button>
+
+			<button class="button button-dark ion-android-cancel ink" ng-click="editAnswer = false;"></button>
 
 		</ion>
 

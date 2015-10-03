@@ -1,13 +1,14 @@
 (function() {
 	angular.module('regiknow').controller("QuestionAnswerController", QuestionAnswerController);
-	QuestionAnswerController.$inject = ['$state', 'QuestionFactory', '$stateParams', 'AnswerFactory', '$rootScope'];
-	function QuestionAnswerController($state, QuestionFactory, $stateParams, AnswerFactory, $rootScope){
+	QuestionAnswerController.$inject = ['$state', 'QuestionFactory', '$stateParams', 'AnswerFactory', '$rootScope', 'ionicMaterialInk'];
+	function QuestionAnswerController($state, QuestionFactory, $stateParams, AnswerFactory, $rootScope, ionicMaterialInk){
 		var vm = this;
 		vm.edit = {}
 
 		vm.AnswerObj = {};
 		vm.status = $rootScope._user
 
+		ionicMaterialInk.displayEffect();
 
 		//Grabbing individual question from questions feed-----------------------------------
 		if(!$stateParams.id){
