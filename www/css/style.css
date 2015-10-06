@@ -5,9 +5,19 @@ a {
 	text-decoration: none;
 }
 
+.button {
+	background: #26a69a;
+	color: white;
+	border: none;
+}
+
+.search {
+	font-size: 2em;
+}
+
 /*======================*/
 .custom-icon {
-	color: #33CD5F;
+	color: #26a69a;
 	font-size: 3em;
 	z-index: 1;
 	margin-top: -.2em;
@@ -23,7 +33,10 @@ a {
 }
 
 .naviBar h1 {
-	color: white;
+	color: #26a69a;
+	width: 100%;
+	margin:0px;
+	padding: 0px;
 	font-size: 1.3em;
 	text-align: center;
 	margin: auto;
@@ -47,6 +60,13 @@ a {
 	text-shadow: 1px 3px 3px #000;
 }
 
+
+.userSection {
+	padding-top: 1.5em;
+	background: #26a69a;
+	color: white;
+	height: 70%;
+}
 
 
 /*STYLING FOR USER SETTINGS AND MAP======================================================*/

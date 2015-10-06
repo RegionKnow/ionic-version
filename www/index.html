@@ -8,9 +8,10 @@
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-  -->
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above -->
+  <!-- <link href="css/ionic.app.css" rel="stylesheet"> -->
+
 
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -76,8 +77,8 @@
 </ion-side-menu-content>
 
 
-<ion-side-menu class="padding" side="left">
-<ion-header-bar class="bar-balanced naviBar">
+<ion-side-menu side="left">
+<ion-header-bar class="naviBar">
 
 <h1>RegionKnow</h1>
 
@@ -85,7 +86,7 @@
 
 <ion-content class="list">
 
-<div class="row">
+<div class="row userSection">
   <div class="col"></div>
   <div class="col" ng-controller="UserController as vm"><ion class="item ion-image" style="font-size:3em;"></ion>
     <br>Hey {{vm.status.username}}
@@ -93,16 +94,15 @@
   <div class="col"></div>
 </div>
 
+<span class="custom-icon"><a ui-sref="myApp" ng-click="vm.toggleLeft(); vm.trueWelcome()" class="item ion-home"><span class="navTitles">&nbsp; &nbsp;Welcome</span></a></span>
 
 <span class="custom-icon"><a ng-hide='vm.status' ui-sref="Login" ng-click="vm.toggleLeft(); vm.trueLogin()" class="item ion-key"><span class="navTitles">&nbsp; &nbsp;Login</span></a></span>
 
-<span class="custom-icon"><a ui-sref="myApp" ng-click="vm.toggleLeft(); vm.trueWelcome()" class="item ion-home"><span class="navTitles">&nbsp; &nbsp;Welcome</span></a></span>
+<span class="custom-icon"><a ui-sref="UserProfile" ng-hide='!vm.status' ng-click="vm.toggleLeft(); vm.trueProfile()" class="item ion-person"><span class="navTitles">&nbsp; &nbsp;Profile</span></a></span>
 
-<span class="custom-icon"><a ui-sref="UserProfile" ng-click="vm.toggleLeft(); vm.trueProfile()" class="item ion-person"><span class="navTitles">&nbsp; &nbsp;Profile</span></a></span>
+<span class="custom-icon"><a ng-hide='!vm.status' href="#/createQuestion" ng-click="vm.toggleLeft(); vm.trueQuestions()" class="item ion-ios-glasses"><span class="navTitles">&nbsp; &nbsp;Ask/View Qs</span></a></span>
 
-<span class="custom-icon"><a href="#/createQuestion" ng-click="vm.toggleLeft(); vm.trueQuestions()" class="item ion-ios-glasses"><span class="navTitles">&nbsp; &nbsp;Ask/View Qs</span></a></span>
-
-<span class="custom-icon"><a ui-sref="UserSettings()" ng-click="vm.toggleLeft(); vm.trueUserSettings()" class="item ion-gear-a"><span class="navTitles">&nbsp; &nbsp;User Settings</span></a></span>
+<span class="custom-icon"><a ng-hide='!vm.status' ui-sref="UserSettings()" ng-click="vm.toggleLeft(); vm.trueUserSettings()" class="item ion-gear-a"><span class="navTitles">&nbsp; &nbsp;User Settings</span></a></span>
 
 </ion-content>
 </ion-side-menu>

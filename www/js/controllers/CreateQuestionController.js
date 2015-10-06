@@ -37,6 +37,46 @@
 			});
 		};
 
+		//=============MAPS FUNCTIONALITY WHEN CREATING QUESTION=====================================
+		vm.addQlocaiton = function(){
+			vm.mapStatus = true;
+			var geocoder = new google.maps.Geocoder();
+			var geocoderRequest = { address: vm.quesitonLoction };
+			geocoder.geocode(geocoderRequest, function(results, status){
+				console.log(results)
+				var loc = results[0].geometry.location;
+				console.log(loc)
+				vm.question.lat = loc.H;
+				vm.question.lng = loc.L;
+				vm.map = new google.maps.Map(document.getElementById('map'), {
+					center: {lat: loc.H, lng: loc.L},
+					scrollwheel: true,
+					zoom: 11,
+				})
+				var marker = new google.maps.Marker({
+					map: vm.map,
+					position: new google.maps.LatLng(loc.H, loc.L),
+					title: 'Your Current Location',
+					draggable: true
+				});
+				google.maps.event.addListener(marker, 'dragend', function(){
+					if(vm.cityCircle){
+						vm.cityCircle.setMap(null); 
+					}
+					
+					vm.question.lat = marker.internalPosition.H
+					vm.question.lng = marker.internalPosition.L
+					console.log(vm.question)
+
+					
+				});
+			});
+			
+		}
+
+
+
+
 		//=============TAGS FUNCTIONALITY=====================================
 		
 		vm.addTag = function(tag){

@@ -6,7 +6,7 @@
 
 
 <ion class="list" >
-	<h5 class="title">1. Create your Question</h5>
+	<h5 class="title">1. CREATE YOUR QUESTION</h5>
 
 	<label class="item item-input">
 		<input type="text" class="form-control" placeholder="Type Question Here..." ng-model="vm.desc"/>
@@ -15,12 +15,15 @@
 </ion>
 
 <ion class="list" >
-	<h5 class="title">2. Add tag(s) about your Question</h5>
+	<h5 class="title">2. ADD TAG(S) ABOUT YOUR QUESTION</h5>
 
 	<ion class="item item-input">
 		<input type="text" class="form-control" placeholder="Type tag Here..." ng-model="vm.tag"/>
-		<button class="button ion-checkmark-round button-balanced ink" ng-click="vm.addTag(vm.tag); showTags = true;"></button>
+		<button class="button ion-checkmark-round ink" ng-click="vm.addTag(vm.tag); showTags = true;"></button>
 	</ion>
+
+	<span ng-show="vm.tagError" style="color: #ff0000">Cannot Submit tag with Spaces</span>
+
 </ion>
 
 <div>	
@@ -31,19 +34,25 @@
 	</div>
 </div>
 
+
+<ion class="list">
+	<h5 class="title">3. ENTER LOCATION OF QUESTION</h5>
+
+	<ion class="item item-input">
+		<input type="text" class="form-control" ng-model="vm.quesitonLoction" placeholder="Type location here..">
+		<button class="button ion-checkmark-round ink" ng-click="vm.addQlocaiton(); showTags = true;"></button>
+	</ion>
+	
+</ion>
+
+<div ng-show="vm.mapStatus" id="map"></div>
+
 <br/>
-<div ng-click="vm.createQ()">
-	<h3 class="button button-block ink button-balanced button-outline button-raised">3. Post Question with Tags</h3>
+<div ng-click="vm.createQ();">
+	<h3 class="button button-block ink button-raised">4. FINISH & POST QUESTION</h3>
 </div>
 <br>
 <br>
-<div class="text-center">
-	<a href="#/questionsFeed">
-		<button class="button button-balanced button-outline ink">
-			View Questions
-		</button>
-	</a>
-</div>
 
 </ion-content>
 </ion-view>

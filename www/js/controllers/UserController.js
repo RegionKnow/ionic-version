@@ -28,7 +28,8 @@
 
 		vm.logoutUser = function() {
 			UserFactory.logoutUser().then(function(){
-				delete vm.status;
+				vm.status = "";
+				$state.go("myApp");
 			});
 		};
 

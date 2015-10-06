@@ -5,8 +5,8 @@
 
 
 <div class="text-center">
-	<a ui-sref="CreateQuestion"><button class="button button-balanced ink">Post a Question</button></a>
-	<button ng-click="searchQs = true;" class="button button-balanced button-outline ink ion-search"></button>
+	<a ui-sref="CreateQuestion"><button class="button ink">Post a Question</button></a>
+	<button ng-click="searchQs = true;" class="button button-outline ink ion-search search"></button>
 </div>
 
 <div ng-show="searchQs">
@@ -23,11 +23,11 @@
 	<a  ui-sref="QuestionDetail({id: q._id})">
 		<div class="card">
 			
-			
-			<div class="item item-text-wrap">
-				<button class="button button-fab icon ion-help ink-dark"></button>
-				
-				{{q.questionBody}}
+
+			<div class="item item-text-wrap row">
+				<div class="col-left"><button class="button button-fab button-outline icon ion-help ink-dark"></div>
+				<div class="col">{{q.questionBody}}</div>
+
 			</div>
 		</div>
 	</a>

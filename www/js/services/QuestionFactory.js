@@ -7,6 +7,17 @@
 		var o = {};
 
 
+		//=============================USER ALERT FUNCTIONALITY====================================
+
+		o.sendAlerts = function(id){
+			console.log('alerting in routes')
+			var q = $q.defer();
+			$http.post('api/question/alert/' + id, null).success(function(res){
+				q.resolve();
+			})
+			return q.promise;
+		}
+
 		//=============================QUESTION FUNCTIONALITY====================================
 		o.createQuestion = function(question){ // create the question
 			var q = $q.defer();
@@ -58,6 +69,19 @@
 			var q = $q.defer();
 			$http.post('http://localhost:3000/api/question/tags/' + question_id, tags).success(function(res){
 				q.resolve(res);
+			})
+			return q.promise;
+		}
+
+		//=============================GOOGLE MAPS FUNCTIONALITY====================================
+
+		o.getLocation = function(){
+			var key = 'AIzaSyDEQ3oCFj1hp7uqTeb8YLmXYrgtmQk-KmM'
+			var q = $q.defer();
+			console.log('in location homefactory')
+			$http.post('https://www.googleapis.com/geolocation/v1/geolocate?key=' + key).success(function(res){
+				q.resolve(res);
+
 			})
 			return q.promise;
 		}
