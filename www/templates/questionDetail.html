@@ -4,16 +4,19 @@
 
 
 <h1>{{vm.question.questionBody}}</h1>
-<h1>{{vm.question.tags}}</h1>
+
+<i class="tags" ng-repeat="t in vm.question.tags track by $index">{{t}}</i>
+
 <br>
 
-<button ng-if="vm.status.id === vm.question.postedBy && !vm.options" ng-click="vm.showOptions()">Options</button>
+<i style="font-size: 2em;" class="icon ion-android-more-horizontal ink" ng-if="vm.status.id === vm.question.postedBy && !vm.options" ng-click="vm.showOptions();"></i>
+<br>
+<ion class="row" ng-if="vm.options">
 
-<ion ng-if="vm.options">
-
-	<button class="button-energized ink" ng-click="vm.editQuestion()">Edit</button>
-	<button class="button-assertive ink" ng-click="vm.deleteQuestion(vm.question._id)">Delete</button>
-	<button class="button-stable ink" ng-click="vm.hideOptions()" >close</button>
+	<div class="col ink button-outline" ng-click="vm.editQuestion()">Edit</div>
+	
+	<div class="col ink button-outline" ng-click="vm.deleteQuestion(vm.question._id)">Delete</div>
+	<div class="col ink button-outline ion-android-close" ng-click="vm.hideOptions(); options = true;" ></div>
 	
 </ion>
 
@@ -22,11 +25,12 @@
 
 <ion>
 	<form ng-submit="vm.addAnswer()">
-		<textarea placeholder="Type your answer here..." class="form-control" id="questionInput" rows="2" ng-model="vm.AnswerObj.answerBody" require></textarea>
-
+		<ion class="item item-input">
+			<input type="text" placeholder="Touch here to answer question..." id="questionInput" ng-model="vm.AnswerObj.answerBody" require></input>
+		</ion>
 		<br>
 
-		<button class="button button-balanced ink" ng-disabled="!vm.AnswerObj.answerBody" type="submit">
+		<button class="button button-raised ink" ng-disabled="!vm.AnswerObj.answerBody" type="submit">
 			Submit Answer
 		</button>
 	</form>
@@ -44,7 +48,7 @@
 	{{a.answerBody}}
 	
 	<ion >
-		<button class="ion-edit text-right ink" ng-show="!editAnswer" ng-click="editAnswer = true;"></button>
+		<i class="ion-edit right ink" ng-show="!editAnswer" ng-click="editAnswer = true;"></i>
 		<br>
 		<ion ng-show="editAnswer">
 			<input ng-model="vm.AnswerObj.answerBody">

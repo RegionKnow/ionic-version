@@ -7,6 +7,7 @@
 
 		vm.AnswerObj = {};
 		vm.status = $rootScope._user
+		vm.optionsIcon = true;
 
 		ionicMaterialInk.displayEffect();
 

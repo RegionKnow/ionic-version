@@ -23,7 +23,10 @@
 		vm.loginUser = function() {
 			UserFactory.loginUser(vm.user).then(function(){
 				vm.status = $rootScope._user;
+				vm.user.username = "";
+				vm.user.password = "";
 				$state.go("QuestionsFeed");
+
 			});
 		};
 

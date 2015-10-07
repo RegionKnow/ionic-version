@@ -15,6 +15,9 @@ a {
 	font-size: 2em;
 }
 
+[ng\:cloak], [ng-cloak], .ng-cloak {
+	display: none;
+}
 /*======================*/
 .custom-icon {
 	color: #26a69a;
@@ -87,7 +90,7 @@ a {
 /*STYLING TAGS======================================================*/
 
 
-#tags {
+.tags {
 	display: inline-block;
 	box-shadow: 1px 2px 6px #333;
 	padding: 7px;

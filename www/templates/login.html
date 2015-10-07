@@ -4,7 +4,8 @@
 
 
 
-<ion class="list" ng-submit="">
+<ion class="list">
+
 
 	<label class="item item-input">
 		<input type="text" class="form-control" placeholder="Username..." ng-model="global.user.username"/>
@@ -13,10 +14,11 @@
 	<label class="item item-input">
 		<input type="password" class="form-control" placeholder="Password..." ng-model="global.user.password"/>
 	</label>
+	
 
 </ion>
 
-<button ng-click="global.loginUser()" class="button ink">
+<button ng-click="global.loginUser()" class=" button button-block ink button-raised">
 	Login
 </button>
 

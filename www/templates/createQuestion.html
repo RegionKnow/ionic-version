@@ -27,7 +27,7 @@
 </ion>
 
 <div>	
-	<div id="tags" ng-show="showTags" ng-repeat="tag in vm.tags track by $index">
+	<div class="tags" ng-show="showTags" ng-repeat="tag in vm.tags track by $index">
 		{{tag}}
 		<span ng-click="vm.deleteTag($index)" class="ion-close-round">
 		</span>
