@@ -1,11 +1,12 @@
 <ion-view class="text-center" >
 
 <ion-content ng-controller="UserSettingsController as vm" >
+<p  class="spacer"></p>
 
 <ion-header></ion-header>
 
 
-<button class="button button-balanced button-outline ink locateBtn" ng-show="!vm.mapStatus" ng-click="vm.openMap()">Set Home Location</button>
+<button class="button ink locateBtn" ng-show="!vm.mapStatus" ng-click="vm.openMap()">Set Home Location</button>
 <br>
 <div ng-show="vm.mapStatus" id="map"></div>
 
@@ -31,7 +32,7 @@
 		<option value='10'>10 Miles</option>
 	</select>
 
-	<button ng-show="vm.mapStatus" class="button ion-checkmark-round button-balanced ink" ng-click="vm.submitHomeLocation()"></button>
+	<button ng-show="vm.mapStatus" class="button ion-checkmark-round ink" ng-click="vm.submitHomeLocation()"></button>
 
 
 </div>
@@ -52,11 +53,11 @@
 
 
 <ion class="item item-input" ng-show="filtering">
-	<input type="text" placeholder="Type category of questions you want to see here..." ng-model="vm.tag"/>
-	<button class="button ion-plus button-balanced ink" ng-click="vm.addTag(vm.tag); showTags = true;"></button>
+	<input type="text" placeholder="Type categories of questions you can answer..." ng-model="vm.tag"/>
+	<button class="button ion-plus ink" ng-click="vm.addTag(vm.tag); showTags = true;"></button>
 </ion>
 
-<button ng-show="filtering" class="button ion-checkmark-round button-balanced ink" ng-click="vm.saveTags()"> Finish & Save</button>
+<button ng-show="filtering" class="button ion-checkmark-round ink" ng-click="vm.saveTags()"> Finish & Save</button>
 
 
 <div>
@@ -64,8 +65,10 @@
 </div>
 
 <div>	
-	<div id="tags" ng-repeat="tag in vm.tags track by $index">
-		{{tag}}
+	<br>
+	YOUR QUESTION CATEGORIES:
+	<div class="tags" ng-repeat="tag in vm.tags track by $index">
+		<i> {{tag}}</i>
 		<span ng-click="vm.deleteTag($index)" class="ion-close-round">
 		</span>
 	</div>

@@ -1,6 +1,7 @@
 <ion-view class="text-center">
 <ion-content ng-controller="QuestionAnswerController as vm">
 
+<p  class="spacer"></p>
 
 
 <h1>{{vm.question.questionBody}}</h1>
@@ -30,7 +31,7 @@
 		</ion>
 		<br>
 
-		<button class="button button-raised ink" ng-disabled="!vm.AnswerObj.answerBody" type="submit">
+		<button class="button button-block button-raised ink" ng-disabled="!vm.AnswerObj.answerBody" type="submit">
 			Submit Answer
 		</button>
 	</form>

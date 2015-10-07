@@ -18,7 +18,7 @@ a {
 [ng\:cloak], [ng-cloak], .ng-cloak {
 	display: none;
 }
-/*======================*/
+/*===========NAVIGATION STYLES===========*/
 .custom-icon {
 	color: #26a69a;
 	font-size: 3em;
@@ -48,6 +48,10 @@ a {
 .navTitles {
 	color: #333;
 	font-size: 1.3em;
+}
+
+.spacer {
+	height: 3em;
 }
 /*STYLING FOR WELCOME PAGE AND TITLE FOR EACH STATE======================================================*/
 .welcomePic {
