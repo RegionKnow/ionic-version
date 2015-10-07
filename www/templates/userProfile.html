@@ -10,11 +10,40 @@
 
 <ion>Email: {{vm.userLoggedIn.email}}</ion>
 
-<div ng-hide="!vm.userLoggedIn">
+
+<button class="button button-block button-small" ng-click="profileOptions = true;">Profile Options</button>
+
+
+<ion class="list" ng-show="editInput">
+
+	<label class="item item-input" >
+		<input type="text" class="form-control" placeholder="New username here..." ng-model="vm.user.username"/>
+	</label>
+	<label class="item item-input" >
+		<input type="text" class="form-control" placeholder="New email here..." ng-model="vm.user.email"/>
+	</label>
+	<label class="item item-input" >
+		<input type="text" class="form-control" placeholder="New password here..." ng-model="vm.user.password"/>
+	</label>
+
+	<button class="button button-positive button-outline ink button-block" ng-click="vm.editProfile(); editInput = false;">Submit changes</button>
+
+</ion>
+
+<div class="row" ng-show="profileOptions">
+	<div class="col ink button-outline" ng-click="editInput = true;">Change Username</div>
+
+	<div class="col ink button-outline" ng-click="vm.deactivateProfile()">Deactivate Account</div>
+</div>
+
+
+<div >
 	<div>
 		<button ng-click="global.logoutUser()"  class="button button-outline button-small ink">Logout</button>
 	</div>
 </div>
+
+<!-- ng-hide="!vm.userLoggedIn"  -->
 
 </ion-content>
 </ion-view>

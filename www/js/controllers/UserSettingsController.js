@@ -10,7 +10,7 @@
 
 		ionicMaterialInk.displayEffect();
 		
-		var userId = $rootScope._user.id;//we are using this instead state Params==================
+		vm.status = UserFactory.status._user.id;//we are using this instead state Params==================
 		var counter = 0;
 
 		console.log("are you getting to UserSettingsController");

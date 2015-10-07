@@ -1,12 +1,13 @@
+
 (function() {
 	angular.module('regiknow').controller("QuestionAnswerController", QuestionAnswerController);
-	QuestionAnswerController.$inject = ['$state', 'QuestionFactory', '$stateParams', 'AnswerFactory', '$rootScope', 'ionicMaterialInk'];
-	function QuestionAnswerController($state, QuestionFactory, $stateParams, AnswerFactory, $rootScope, ionicMaterialInk){
+	QuestionAnswerController.$inject = ['$state', 'QuestionFactory', '$stateParams', 'AnswerFactory', '$rootScope', 'ionicMaterialInk', 'UserFactory'];
+	function QuestionAnswerController($state, QuestionFactory, $stateParams, AnswerFactory, $rootScope, ionicMaterialInk, UserFactory){
 		var vm = this;
 		vm.edit = {}
 
 		vm.AnswerObj = {};
-		vm.status = $rootScope._user
+		vm.status = UserFactory.status;
 		vm.optionsIcon = true;
 
 		ionicMaterialInk.displayEffect();

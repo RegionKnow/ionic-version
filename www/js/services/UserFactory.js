@@ -5,8 +5,12 @@
 
 	function UserFactory($q, $http, $window, $rootScope) {
 		var o = {};
-
+		o.status = {};
 		//---------------------TOKENS----------------------------------------------------
+
+		o.setLoggedinUserToRootScope = function() {
+			o.status._user = isLoggedIn();
+		}
 
 		function setToken(token) {
 			localStorage.setItem("token", token);
@@ -31,7 +35,7 @@
 				return false;
 			}
 		}
-		//---------------------LOGIN, REGISTER, LOGOUT----------------------------------------------------
+		//---------------------LOGIN, REGISTER, LOGOUT, EDITUSERNAME----------------------------------------------------
 
 		o.registerUser = function(user) {
 			var q = $q.defer();
@@ -49,21 +53,30 @@
 			user.username = user.username.toLowerCase();
 			$http.post('http://localhost:3000/api/user/login', user).success(function(res) {
 				setToken(res.token);
-				$rootScope._user = isLoggedIn();
-				console.log($rootScope._user)
+				o.status._user = isLoggedIn();
+				
 				q.resolve();
-				o.status = $rootScope._user;
-				console.log("this is status" + o.status);
 			});
 			return q.promise;
 		};
 
+		o.editProfile = function(userId, userEdits) {
+			console.log(userEdits);
+			console.log(userId);
+			var q = $q.defer();
+			$http.post('http://localhost:3000/api/user/' + userId, userEdits).success(function(res){
+				q.resolve(res);
+				console.log(res);
+			})
+			return q.promise;
+		}
 
 
-		o.logoutUser = function(){
+
+		o.logoutUser = function() {
 			var q = $q.defer()
 			removeToken();
-			$rootScope._user = isLoggedIn();
+			o.status._user = isLoggedIn();
 			q.resolve();
 			return q.promise;
 		};
@@ -93,7 +106,7 @@
 		}
 
 
-		$rootScope._user = isLoggedIn();
+		o.status._user = isLoggedIn();
 		return o;
 	}
 })();

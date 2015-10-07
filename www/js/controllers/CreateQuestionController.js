@@ -3,9 +3,9 @@
 	angular.module('regiknow')
 	.controller('CreateQuestionController', CreateQuestionController);
 
-	CreateQuestionController.$inject = ['$state', 'QuestionFactory', '$rootScope', 'ionicMaterialInk'];
+	CreateQuestionController.$inject = ['$state', 'QuestionFactory', '$rootScope', 'ionicMaterialInk', 'UserFactory'];
 
-	function CreateQuestionController($state, QuestionFactory, $rootScope, ionicMaterialInk) {
+	function CreateQuestionController($state, QuestionFactory, $rootScope, ionicMaterialInk, UserFactory) {
 		var vm = this;
 		var counter = 0;
 
@@ -14,12 +14,12 @@
 
 		ionicMaterialInk.displayEffect();
 
-		vm.status = $rootScope._user //THIS IS THE USER THAT'S LOGGED IN
+		vm.status = UserFactory.status; //THIS IS THE USER THAT'S LOGGED IN
 		vm.tags = [];
 
 		//=============CREATING & GETTING ALL QUESTIONS WITH ANSWERS=====================================
 		vm.getQuestions = function(){
-			QuestionFactory.findQuestions(vm.status.id).then(function(res){
+			QuestionFactory.findQuestions(vm.status._user.id).then(function(res){
 				vm.allquestions = res;
 			});
 		};
@@ -28,7 +28,7 @@
 		vm.createQ = function(){
 			vm.question.questionBody = vm.desc; // setting desc to questionbody
 			console.log(vm.question.questionBody)
-			vm.question.user_id = vm.status.id;
+			vm.question.user_id = vm.status._user.id;
 
 			QuestionFactory.createQuestion(vm.question).then(function(res){
 				delete vm.question // deleting question object

@@ -1,28 +1,27 @@
 (function() {
 	angular.module('regiknow').controller("UserController", UserController);
-	UserController.$inject = ['UserFactory', '$state', '$rootScope', 'ionicMaterialInk', '$ionicSideMenuDelegate'];
-	function UserController(UserFactory, $state, $rootScope, ionicMaterialInk, $ionicSideMenuDelegate){
+	UserController.$inject = ['UserFactory', '$state', 'ionicMaterialInk', '$ionicSideMenuDelegate'];
+	function UserController(UserFactory, $state, ionicMaterialInk, $ionicSideMenuDelegate){
 		var vm = this;
-		vm.status = $rootScope._user;
+		vm.status = UserFactory.status;
 		console.log(vm.status);
 
 		ionicMaterialInk.displayEffect();
 
 		vm.welcome = true;
 
-		//---------FUNCTIONALITY FORa REGISTER & LOGIN USER----------------------------------------------------------
+		//---------FUNCTIONALITY FOR USER----------------------------------------------------------
 
 		vm.registerUser = function() {
 			UserFactory.registerUser(vm.user).then(function(){
-				vm.user = {};
-				delete vm.user;
+				vm.user = null;
 				$state.go("Login");
 			});
 		};
 
 		vm.loginUser = function() {
 			UserFactory.loginUser(vm.user).then(function(){
-				vm.status = $rootScope._user;
+				vm.status = UserFactory.status;
 				vm.user.username = "";
 				vm.user.password = "";
 				$state.go("QuestionsFeed");
@@ -36,6 +35,7 @@
 				$state.go("myApp");
 			});
 		};
+
 
 
 
@@ -125,5 +125,5 @@
       // }
 
 
-  }
+}
 })();

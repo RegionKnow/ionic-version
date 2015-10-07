@@ -10,7 +10,7 @@
 
 <br>
 
-<i style="font-size: 2em;" class="icon ion-android-more-horizontal ink" ng-if="vm.status.id === vm.question.postedBy && !vm.options" ng-click="vm.showOptions();"></i>
+<i style="font-size: 2em;" class="icon ion-android-more-horizontal ink" ng-if="vm.status._user.id === vm.question.postedBy && !vm.options" ng-click="vm.showOptions();"></i>
 <br>
 <ion class="row" ng-if="vm.options">
 
@@ -45,20 +45,22 @@
 
 </div>
 
-<div ng-repeat="a in vm.question.answers" class="card">
+<div ng-repeat="a in vm.question.answers" class="card answerCard">
 	{{a.answerBody}}
 	
 	<ion >
-		<i class="ion-edit right ink" ng-show="!editAnswer" ng-click="editAnswer = true;"></i>
+		<i style="font-size: 2em;" class="icon ion-android-more-horizontal ink" ng-show="!editAnswer" ng-click="editAnswer = true;"></i>
 		<br>
 		<ion ng-show="editAnswer">
-			<input ng-model="vm.AnswerObj.answerBody">
+			<div class="item item-input">
+				<input ng-model="vm.AnswerObj.answerBody" placeholder="Edit your answer here">
+			</div>
 			<br>
-			<button  class="button button-balanced ion-edit ink" ng-click="editAnswer = false"></button>
+			<i  class="ion-edit ink" ng-click="editAnswer = false;"></i>
 
-			<button class="button button-assertive ion-trash-a ink" ng-click="editAnswer = false;"></button>
+			<i class="ion-trash-a ink" ng-click="editAnswer = false;"></i>
 
-			<button class="button button-dark ion-android-cancel ink" ng-click="editAnswer = false;"></button>
+			<i class="ion-android-cancel ink" ng-click="editAnswer = false;"></i>
 
 		</ion>
 
