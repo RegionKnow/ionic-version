@@ -1,21 +1,21 @@
 <ion-view class="text-center welcomePic" >
 
-<ion-content ng-controller="UserController as vm" ng-cloak >
+<ion-content ng-cloak >
 
-<ion-header><h3>Welcome {{vm.status.username}}!</h3> 
+<ion-header><h3>Welcome {{global.status.username}}!</h3> 
 
 
 </ion-header>
 
 <h1 class="col">
-	<a href="#/questionsFeed"><button ng-hide="!vm.status" class="button button-raised ink">Ask or view questions</button></a>
-	<a href="#/login"><button ng-hide="vm.status" class="button button-raised button-light ink">Login</button></a>
-	<a href="#/register"><button ng-hide="vm.status" class="button button-raised ink">Register</button></a>
+	<a href="#/questionsFeed"><button ng-hide="!global.status" class="button button-raised ink">Ask or view questions</button></a>
+	<a href="#/login"><button ng-hide="global.status" class="button button-raised button-light ink">Login</button></a>
+	<a href="#/register"><button ng-hide="global.status" class="button button-raised ink">Register</button></a>
 </h1>
 
 <h1 class="col">
-	<button ng-hide="vm.status" href="http://localhost:3000/api/user/auth/facebook" class="button-positive button-raised icon ion-social-facebook ink">&nbsp;Facebook Login</button>
-	<button ng-hide="vm.status" href="http://localhost:3000/api/user/auth/google" class="button-assertive button-raised ion-social-google ink">&nbsp;Google Login</button>
+	<button ng-hide="global.status" href="http://localhost:3000/api/user/auth/facebook" class="button-positive button-raised icon ion-social-facebook ink">&nbsp;Facebook Login</button>
+	<button ng-hide="global.status" href="http://localhost:3000/api/user/auth/google" class="button-assertive button-raised ion-social-google ink">&nbsp;Google Login</button>
 </h1>
 
 

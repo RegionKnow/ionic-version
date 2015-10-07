@@ -1,6 +1,6 @@
 <ion-view >
 
-<ion-content ng-controller="UserController as vm">
+<ion-content>
 <ion-header><h3 class="title">Register!</h3></ion-header>
 
 
@@ -8,26 +8,26 @@
 <ion class="list">
 
 	<label class="item item-input">
-		<input type="text" class="form-control" placeholder="Username..." ng-model="vm.user.username"/>
+		<input type="text" class="form-control" placeholder="Username..." ng-model="global.user.username"/>
 	</label>
 
 	<label class="item item-input">
-		<input type="email" class="form-control" placeholder="Email..." ng-model="vm.user.email"/>
+		<input type="email" class="form-control" placeholder="Email..." ng-model="global.user.email"/>
 	</label>
 
 	<label class="item item-input">
-		<input type="password" class="form-control" placeholder="Password..." ng-model="vm.user.password"/>
+		<input type="password" class="form-control" placeholder="Password..." ng-model="global.user.password"/>
 	</label>
 
 	<label class="item item-input">
-		<input type="password" ng-model="vm.user.passwordConfirm" placeholder="Confirm Password..." class="form-control"/>
+		<input type="password" ng-model="global.user.passwordConfirm" placeholder="Confirm Password..." class="form-control"/>
 	</label>
 
 	
 </ion>
 
 
-<div ng-click="vm.registerUser()" class="button button-balanced ink">
+<div ng-click="global.registerUser()" class="button button-balanced ink">
 	<h3 class="title">Register</h3>
 </div>
 

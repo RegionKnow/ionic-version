@@ -1,22 +1,22 @@
 <ion-view >
 
-<ion-content ng-controller="UserController as vm" >
+<ion-content>
 
 
 
 <ion class="list" ng-submit="">
 
 	<label class="item item-input">
-		<input type="text" class="form-control" placeholder="Username..." ng-model="vm.user.username"/>
+		<input type="text" class="form-control" placeholder="Username..." ng-model="global.user.username"/>
 	</label>
 
 	<label class="item item-input">
-		<input type="password" class="form-control" placeholder="Password..." ng-model="vm.user.password"/>
+		<input type="password" class="form-control" placeholder="Password..." ng-model="global.user.password"/>
 	</label>
 
 </ion>
 
-<button ng-click="vm.loginUser()" class="button ink">
+<button ng-click="global.loginUser()" class="button ink">
 	Login
 </button>
 
