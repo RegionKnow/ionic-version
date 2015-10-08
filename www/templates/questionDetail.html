@@ -1,24 +1,50 @@
 <ion-view class="text-center">
 <ion-content ng-controller="QuestionAnswerController as vm">
 
+<ion-header-bar>
+Question Detail
+</ion-header-bar>
+
 <p  class="spacer"></p>
 
 
-<h1>{{vm.question.questionBody}}</h1>
-
+<h1 id="Qs">{{vm.question.questionBody}}</h1>
 <i class="tags" ng-repeat="t in vm.question.tags track by $index">{{t}}</i>
-
 <br>
+
+<i>Posted by: {{vm.question.userName}}</i>
+<br>
+<br>
+<div ng-controller="VoteController as vm" class="row">
+
+	<div class="col">
+		<button class="button ion-arrow-left-b icon-left" ng-click="vm.downVote()">VOTE</button>
+	</div>
+
+	<div class="col voteBox">
+		<div class="button button-outline button-dark" class="col" id="voteNumber">{{vm.voteNum}}</div>
+	</div>
+
+	<div class="col">
+		<button ng-click="vm.upVote()" class="button ion-arrow-right-b icon-right">VOTE</button>
+	</div>
+
+</div>
+
+
+
+
+
 
 <i style="font-size: 2em;" class="icon ion-android-more-horizontal ink" ng-if="vm.status._user.id === vm.question.postedBy && !vm.options" ng-click="vm.showOptions();"></i>
 <br>
 <ion class="row" ng-if="vm.options">
 
 	<div class="col ink button-outline" ng-click="vm.editQuestion()">Edit</div>
-	
+
 	<div class="col ink button-outline" ng-click="vm.deleteQuestion(vm.question._id)">Delete</div>
 	<div class="col ink button-outline ion-android-close" ng-click="vm.hideOptions(); options = true;" ></div>
-	
+
 </ion>
 
 <br>
@@ -47,7 +73,7 @@
 
 <div ng-repeat="a in vm.question.answers" class="card answerCard">
 	{{a.answerBody}}
-	
+
 	<ion >
 		<i style="font-size: 2em;" class="icon ion-android-more-horizontal ink" ng-show="!editAnswer" ng-click="editAnswer = true;"></i>
 		<br>
@@ -66,7 +92,7 @@
 
 
 
-		
+
 	</ion>
 
 </ion>

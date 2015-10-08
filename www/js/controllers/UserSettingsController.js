@@ -3,9 +3,9 @@
 	angular.module('regiknow')
 	.controller('UserSettingsController', UserSettingsController);
 
-	UserSettingsController.$inject = ['$http', '$stateParams', 'UserSettingsFactory', '$rootScope', 'ionicMaterialInk'];
+	UserSettingsController.$inject = ['$http', '$stateParams', 'UserSettingsFactory', '$rootScope', 'ionicMaterialInk', "UserFactory"];
 
-	function UserSettingsController($http, $stateParams, UserSettingsFactory, $rootScope, ionicMaterialInk) {
+	function UserSettingsController($http, $stateParams, UserSettingsFactory, $rootScope, ionicMaterialInk, UserFactory) {
 		var vm = this;
 
 		ionicMaterialInk.displayEffect();
@@ -25,7 +25,7 @@
 		}
 
 		vm.filterOff = function(){
-			UserSettingsFactory.filterOff(userId).then(function(res){
+			UserSettingsFactory.filterOff(vm.status).then(function(res){
 				console.log('filter Question is Off');
 			})
 		}
@@ -35,8 +35,7 @@
 		getTags();
 		vm.tag = "";
 		function getTags(){
-			UserSettingsFactory.getTags(userId).then(function(res){
-				console.log(userId)
+			UserSettingsFactory.getTags(vm.status).then(function(res){
 				vm.tags = res;
 				console.log(vm.tags);
 			})
@@ -76,8 +75,8 @@
 
 		vm.saveTags = function(){
 			
-			UserSettingsFactory.removeTags(userId).then(function(res){
-				UserSettingsFactory.addTags(vm.tags, userId).then(function(res){
+			UserSettingsFactory.removeTags(vm.status).then(function(res){
+				UserSettingsFactory.addTags(vm.tags, vm.status).then(function(res){
 					console.log('saved tags')
 				})
 			})
@@ -153,7 +152,7 @@ function getCircle(Pinlat, Pinlng){
 			 getCircle(); 
 			 vm.homeLocation.radius = vm.distance
 			 console.log(vm.homeLocation)
-			 var id = userId;
+			 var id = vm.status;
 
 			 UserSettingsFactory.addHomeLocation(vm.homeLocation, id).then(function(res){
 			 	vm.hlAdded = true;

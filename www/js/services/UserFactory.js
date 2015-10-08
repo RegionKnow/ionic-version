@@ -54,6 +54,7 @@
 			$http.post('http://localhost:3000/api/user/login', user).success(function(res) {
 				setToken(res.token);
 				o.status._user = isLoggedIn();
+				console.log(o.status._user)
 				
 				q.resolve();
 			});
@@ -66,7 +67,6 @@
 			var q = $q.defer();
 			$http.post('http://localhost:3000/api/user/' + userId, userEdits).success(function(res){
 				q.resolve(res);
-				console.log(res);
 			})
 			return q.promise;
 		}
@@ -84,7 +84,6 @@
 		//-----------GET USER LOGGED IN-----------------------------------------------------------
 
 		o.getUserLoggedIn = function(userId){
-			console.log(userId);
 			var q = $q.defer();
 			$http.get('http://localhost:3000/api/user/' + userId).success(function(res){
 				q.resolve(res);

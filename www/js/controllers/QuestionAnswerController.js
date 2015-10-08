@@ -76,6 +76,37 @@
 			});
 		};
 
-		
+		// VOTING SYSTEM----------------------------------------------------------------
+
+		vm.choseAnswer = function(AnswerId, postedBy){
+			console.log('inside choseAnswer')
+			if(vm.status._user.id != vm.question.postedBy) return;
+			if(vm.question.answered) return;
+			QuestionFactory.confirmAnswer(vm.thisQuesitonId, AnswerId).then(function(res){
+				findAnswerVote(AnswerId);
+			})
+		}
+
+		vm.upVoteAnswer = function(answer_id){
+			vm.voteError = false;
+			$http.post('http://localhost:3000/api/answer/upvote/' + answer_id + '/' + vm.status._user.id, null).success(function(res){
+				console.log(res)
+				if(res == "You already voted!"){
+					vm.voteError = true;
+				}
+				findAnswerVote(answer_id);
+			})
+		}
+
+		vm.downVoteAnswer = function(answer_id){
+			vm.voteError = false;
+			$http.post('http://localhost:3000/api/answer/downvote/' + answer_id + '/' + vm.status._user.id, null).success(function(res){
+				if(res == 'You already downvoted!'){
+					vm.voteError = true;
+				}
+				findAnswerVote(answer_id);
+			})
+		}
+
 	}
 })();

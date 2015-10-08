@@ -107,3 +107,17 @@ a {
 	padding: .7em;
 }
 
+/*Votes======================================================*/
+
+#voteNumber {
+	font-size: 1.9em;
+}
+
+.voteBox {
+	border: thin solid #26a69a;
+}
+
+#Qs {
+	padding-left: 1em;
+	padding-right: 1em;
+}

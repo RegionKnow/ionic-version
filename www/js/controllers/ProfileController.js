@@ -21,7 +21,12 @@
 	};
 
 	vm.editProfile = function(userEdits) {
+		console.log(userEdits);
+
+		console.log(vm.status);
+		
 		UserFactory.editProfile(vm.status._user.id, userEdits).then(function(res){
+			console.log(vm.status);
 		});
 	};
 

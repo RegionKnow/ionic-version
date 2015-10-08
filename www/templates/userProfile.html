@@ -26,12 +26,12 @@
 		<input type="text" class="form-control" placeholder="New password here..." ng-model="vm.user.password"/>
 	</label>
 
-	<button class="button button-positive button-outline ink button-block" ng-click="vm.editProfile(); editInput = false;">Submit changes</button>
+	<button class="button button-positive button-outline ink button-block" ng-click="vm.editProfile(vm.user); editInput = false;">Submit changes</button>
 
 </ion>
 
 <div class="row" ng-show="profileOptions">
-	<div class="col ink button-outline" ng-click="editInput = true;">Change Username</div>
+	<div class="col ink button-outline" ng-click="editInput = true;">Edit Profile</div>
 
 	<div class="col ink button-outline" ng-click="vm.deactivateProfile()">Deactivate Account</div>
 </div>
