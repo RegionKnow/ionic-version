@@ -51,6 +51,7 @@
       <h1 class="title" ng-show="global.profile">Profile</h1>
       <h1 class="title" ng-show="global.questions">Questions</h1>
       <h1 class="title" ng-show="global.questionsFeed">Questions</h1>
+      <h1 class="title" ng-show="global.messages">Messages</h1>
     </div>
 
     <a ui-sref="QuestionsFeed" ng-click="global.trueQsFeed()"><img id="mainLogo" src="img/smallRegionKnowLogo.png"></a>
@@ -73,18 +74,23 @@
 <div class="row userSection">
   <div class="col"></div>
   <div class="col text-center">
-    <ion class="item ion-image" style="font-size:3em;">{{global.status._user.image}}</ion>
+
+    <img src="{{global.status._user.image}}" height="100px" width="100px">
+
     <br>{{global.status._user.username}}
   </div>
   <div class="col"></div>
 </div>
 
-<span class="custom-icon">
+<span class="custom-icon" ng-hide='global.status'>
   <a ui-sref="myApp" ng-click="global.toggleLeft(); global.trueWelcome()" class="item ion-home"><span class="navTitles">&nbsp; &nbsp;Welcome</span></a>
 </span>
 
 <span ng-hide='!global.status'>
-  <span class="custom-icon"><a ui-sref="UserProfile" ng-click="global.toggleLeft(); global.trueProfile()" class="item ion-person"><span class="navTitles">&nbsp; &nbsp;Profile</span></a>
+  <span class="custom-icon"><a ui-sref="Messages" ng-click="global.toggleLeft(); global.trueMessages()" class="item ion-chatboxes"><span class="navTitles">&nbsp; &nbsp;Messages</span></a>
+</span>
+
+<span class="custom-icon"><a ui-sref="UserProfile" ng-click="global.toggleLeft(); global.trueProfile()" class="item ion-person"><span class="navTitles">&nbsp; &nbsp;Profile</span></a>
 </span>
 
 
@@ -94,6 +100,7 @@
 
 <span class="custom-icon"><a ui-sref="UserSettings()" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-gear-a"><span class="navTitles">&nbsp; &nbsp;User Settings</span></a>
 </span>
+
 </span>
 
 <span ng-hide='global.status' class="custom-icon"><a ui-sref="Login" ng-click="global.toggleLeft(); global.trueLogin()" class="item ion-key"><span class="navTitles">&nbsp; &nbsp;Login</span></a>

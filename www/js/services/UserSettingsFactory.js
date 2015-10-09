@@ -8,6 +8,15 @@
 	function UserSettingsFactory($http, $q) {
 		var o = {};
 
+
+		o.getUserInfo = function(id){
+			var q = $q.defer();
+			$http.get('/api/user/' + id).success(function(res){
+				q.resolve(res);
+			})
+			return q.promise;
+		}
+		
 		//============FILTERING ON OR OFF FOR QUESTION CATEGORIES==============================
 		o.filterOn = function(id){
 			var q = $q.defer();
@@ -20,6 +29,22 @@
 		o.filterOff = function(id){
 			var q = $q.defer();
 			$http.post('http://localhost:3000/api/user/filterOff/' + id).success(function(res){
+				q.resolve();
+			})
+			return q.promise;
+		}
+
+		o.filterAlertOn = function(id){
+			var q = $q.defer();
+			$http.post('/api/user/filterAlertOn/' + id).success(function(res){
+				q.resolve();
+			})
+			return q.promise;
+		}
+
+		o.filterAlertOff = function(id){
+			var q = $q.defer();
+			$http.post('/api/user/filterAlertOff/' + id).success(function(res){
 				q.resolve();
 			})
 			return q.promise;
@@ -62,6 +87,17 @@
 			})
 			return q.promise;
 		}
+
+
+		o.searchLocation = function(){
+			console.log('trying to get location')
+			var q = $q.defer();
+			$http.post('https://maps.googleapis.com/maps/api/geocode/?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=' + key, null).success(function(res){
+				q.resolve(res);
+			})
+			return q.promise;
+		}
+
 		o.addHomeLocation = function(hl, id){
 			var q = $q.defer();
 			console.log(hl);

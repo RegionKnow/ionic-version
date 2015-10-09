@@ -19,7 +19,7 @@
 		
 		//============FILTERING ON OR OFF FOR QUESTION CATEGORIES==============================
 		vm.filterOn = function(){
-			UserSettingsFactory.filterOn(userId).then(function(res){
+			UserSettingsFactory.filterOn(vm.status).then(function(res){
 				console.log('filter Question is On');
 			})
 		}
@@ -30,6 +30,18 @@
 			})
 		}
 
+		// vm.filterAlertOn = function(){
+		// 	UserSettingsFactory.filterAlertOn(vm.status).then(function(res){
+		// 		console.log('filter Question is On');
+		// 		vm.getUser(vm.userId)
+		// 	})
+		// }
+		// vm.filterAlertOff = function(){
+		// 	UserSettingsFactory.filterAlertOff(vm.status).then(function(res){
+		// 		console.log('filter Question is Off');
+		// 		vm.getUser(vm.userId)
+		// 	})
+		// }
 
 		//===============FUNCTIONS to deal with Tags============================================
 		getTags();

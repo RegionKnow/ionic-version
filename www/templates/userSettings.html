@@ -41,24 +41,17 @@
 <br>
 <hr>
 
-
+<!-- FILTERING FOR QUESTIONS FEED BY TAGS======================================== -->
 <ion>
-	{{vm.userId}}
 	<h4>Do you want to filter the questions you see by certain categories?</h4>
 	<button class="button button-assertive button-outline ink" ng-click="vm.filterOff(); filtering = false;">No</button>
 	<button class="button button-balanced button-outline ink" ng-click="vm.filterOn(); filtering = true;">Yes</button>
-	<!-- <h5>(Set tags that describe topics for the questions you want to see)</h5> -->
 </ion>
-
-
 
 <ion class="item item-input" ng-show="filtering">
 	<input type="text" placeholder="Type categories of questions you can answer..." ng-model="vm.tag"/>
-	<button class="button ion-plus ink" ng-click="vm.addTag(vm.tag); showTags = true;"></button>
+	<button class="button ion-plus ink" ng-click="vm.addTag(vm.tag)"></button>
 </ion>
-
-<button ng-show="filtering" class="button ion-checkmark-round ink" ng-click="vm.saveTags()"> Finish & Save</button>
-
 
 <div>
 	<span ng-show="vm.tagError">Cannot Submit tag with Spaces</span>
@@ -74,32 +67,24 @@
 	</div>
 </div>
 
+<button ng-show="filtering" class="button ion-checkmark-round ink" ng-click="vm.saveTags()"> Finish & Save</button>
 
+<!-- FILTERING ALERTS FOR QUESTIONS BY TAGS======================================== -->
+<!-- <ion>
+	<h4>Do you want to filter your alerts for questions by certain categories?</h4>
+	<button class="button button-assertive button-outline ink" ng-click="vm.filterAlertOff(); alertFiltering = false;">No</button>
+	<button class="button button-balanced button-outline ink" ng-click="vm.filterAlertOn(); alertFiltering = true;">Yes</button>
+</ion>
 
-<!-- <div>
-	<h4>Your Current Tags</h4>
+<ion class="item item-input" ng-show="alertFiltering">
+	<input type="text" placeholder="Type categories of questions you can answer..." ng-model="vm.tag"/>
+	<button class="button ion-plus ink" ng-click="vm.addTag(vm.tag)"></button>
+</ion>
 
-	
-	<br>
-	<button ng-click="vm.showTagInput()" class="button button-large">Create Tags</button>
+<button ng-show="alertFiltering" class="button ion-checkmark-round ink" ng-click="vm.saveTags()"> Finish & Save</button>
 
-	<form ng-submit="vm.addTag(vm.tag)" ng-show="vm.showInput">
-		<input class="form-control" ng-model="vm.tag">
-	</form>
-	<button ng-show="vm.saveStatus" ng-click="vm.saveTags()"class="button button-medium" id="tagSave">Save</button>
-</div>
-
-<div class="tagDiv" style="background-color: #FFFFFF;">
-	<br>
-	<span class="" ng-repeat="t in vm.tags track by $index">
-
-		<div class="indvTag">
-			{{t}}   
-			<div ng-click="vm.deleteTag($index)" class="glyphicon glyphicon-remove" aria-hidden="true">
-			</div>
-		</div>
-	</span>
-
+<div>
+	<span ng-show="vm.tagError">Cannot Submit tag with Spaces</span>
 </div> -->
 
 
