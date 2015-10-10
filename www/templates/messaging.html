@@ -1,11 +1,28 @@
 <ion-view class="text-center">
-<ion-content ng-controller="MessagingController as vm">
+<ion-content ng-controller="MessagingController as msg">
 <p  class="spacer"></p>
 
-<ion-header><h3 class="title">{{msg.title}}</h3></ion-header>
+<ion-header></ion-header>
 
-<button ng-click="msg.testRequest()" class="button button-balanced ink">{{msg.button}}</button>
-<h1 ng-show="msg.testMessage">{{msg.testMessage}}</h1>
+
+<div class="card">
+
+	<h4 class="title">Message between...<br>
+		{{convo.participantOne.username}}<br>
+		and<br>
+		{{convo.participantTwo.username}}
+	</h4>
+	<i id="lastMessage">{{convo.messages[convo.messages.length - 1].body || "No messages"}}</i>
+	<button class='button ink button-block' ng-click="msg.openConvo($index);">Open Convo</button>
+	<button class='button button-outline ink button-block'>Delete</button>
+
+</div>
+
+
+
+<!-- 
+	<button ng-click="msg.testRequest()" class="button button-balanced ink">{{msg.button}}</button>
+	<h1 ng-show="msg.testMessage">{{msg.testMessage}}</h1> -->
 
 
 </ion-content>

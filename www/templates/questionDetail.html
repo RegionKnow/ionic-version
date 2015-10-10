@@ -72,28 +72,49 @@ Question Detail
 </div>
 
 <div ng-repeat="a in vm.question.answers" class="card answerCard">
-	{{a.answerBody}}
 
-	<ion >
-		<i style="font-size: 2em;" class="icon ion-android-more-horizontal ink" ng-show="!editAnswer" ng-click="editAnswer = true;"></i>
+	<div class="row">
+
+		<div class="col">
+			<i class="button ink ion-arrow-up-b" ng-click="vm.upVoteAnswer()"></i>
+			<br>
+			<div class="button button-outline button-dark">{{a.voteNum}}</div>
+			<br>
+			<i class="button ink ion-arrow-down-b" ng-click="vm.downVoteAnswer()"></i>
+		</div>
+		<div id="answerBox">
+			<strong>{{a.name}} answered:</strong><br> {{a.answerBody}}
+			<br>
+			<i style="font-size: 2em;" class="icon ion-android-more-horizontal ink right" ng-show="!editAnswer" ng-click="editAnswer = true;"></i>
+
+		</div>
+		<i class="col ion-checkmark  rightAnswer"></i>
+
+	</div>
+
+	<div>
 		<br>
 		<ion ng-show="editAnswer">
-			<div class="item item-input">
-				<input ng-model="vm.AnswerObj.answerBody" placeholder="Edit your answer here">
-			</div>
+			<ion class="item item-input">
+				<input type="text" ng-model="vm.answerEdit" placeholder="{{a.answerBody}}">
+			</ion>
+
 			<br>
-			<i  class="ion-edit ink" ng-click="editAnswer = false;"></i>
 
-			<i class="ion-trash-a ink" ng-click="editAnswer = false;"></i>
+			<div class="row">
+				<i  class="col ink button-outline button-block" ng-click="editAnswer = false; vm.submitEditAnswer({answerId: a._id})">SUBMIT EDIT</i>
 
-			<i class="ion-android-cancel ink" ng-click="editAnswer = false;"></i>
+				<i class="col ink button-outline button-block" ng-click="editAnswer = false;">DELETE</i>
 
+				<i class="col ink button-outline button-block" ng-click="editAnswer = false;">CANCEL</i>
+			</div>
 		</ion>
+	</div>
 
 
 
 
-	</ion>
+	
 
 </ion>
 

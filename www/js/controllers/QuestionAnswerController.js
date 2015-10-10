@@ -1,8 +1,8 @@
 
 (function() {
 	angular.module('regiknow').controller("QuestionAnswerController", QuestionAnswerController);
-	QuestionAnswerController.$inject = ['$state', 'QuestionFactory', '$stateParams', 'AnswerFactory', '$rootScope', 'ionicMaterialInk', 'UserFactory'];
-	function QuestionAnswerController($state, QuestionFactory, $stateParams, AnswerFactory, $rootScope, ionicMaterialInk, UserFactory){
+	QuestionAnswerController.$inject = ['$state', 'QuestionFactory', '$stateParams', 'AnswerFactory', '$rootScope', 'ionicMaterialInk', 'UserFactory', '$http'];
+	function QuestionAnswerController($state, QuestionFactory, $stateParams, AnswerFactory, $rootScope, ionicMaterialInk, UserFactory, $http){
 		var vm = this;
 		vm.edit = {}
 
@@ -32,49 +32,70 @@
 		}
 
 		// Answer Logic----------------------------------------------------------------------------
-		vm.addAnswer = function(){
-			//AnswerObj is the answer for question
-			// vm.AnswerObj.answerBody = vm.answer // sets answer
-			vm.AnswerObj.user_id = vm.status.id // sets user who submited it
-			AnswerFactory.addAnswer(vm.AnswerObj).then(function(res){
-				vm.loading = true; // showing loading gif
-				vm.AnswerObj = {};  // removes local object answer
-				var AnswerId = {};
-				AnswerId.id = res._id; // saves id of answer
-				var QuestionId = $stateParams.id;
-				
-				QuestionFactory.addIdRef(AnswerId, QuestionId).then(function(res){ // function to add ref to question
-					
-					QuestionFactory.findQuestion($stateParams.id).then(function(res){
-						vm.question = res;
-						vm.loading = false;
-					});
-				});
-			});
-		}
+		vm.addAnswer = function() {
+      	//AnswerObj is the answer for question
+      	// vm.AnswerObj.answerBody = vm.answer // sets answer
+      vm.AnswerObj.user_id = vm.status._user.id; // sets user who submited it
+      vm.AnswerObj.questionId = vm.thisQuesitonId;
+      AnswerFactory.addAnswer(vm.AnswerObj).then(function(res) {
+          vm.loading = true; // showing loading gif
+          vm.AnswerObj = {} // removes local object answer
+          var AnswerId = {}
+          AnswerId.id = res._id // saves id of answer
+          var QuestionId = $stateParams.id
 
-		vm.deleteQuestion = function(quesiton_id){
-			QuestionFactory.deleteQuestion(quesiton_id).then(function(res){
-				$state.go('QuestionsFeed')
-			});
-		}
+          QuestionFactory.addIdRef(AnswerId, QuestionId).then(function(res) { // function to add ref to question
 
-		vm.editQuestion = function(){
-			vm.showEdit = true;
-			
-		}
+          	QuestionFactory.findQuestion($stateParams.id).then(function(res) {
 
-		vm.submitEdit = function(edit){
-			vm.showEdit = false;
-			
-			QuestionFactory.editQuestion($stateParams.id, vm.edit).then(function(res){
-				QuestionFactory.findQuestion($stateParams.id).then(function(res){
-					vm.question = res
-					vm.loading = false;
-					vm.edit = {}
-				});
-			});
-		};
+          		vm.question = res;
+
+          		vm.loading = false;
+          	})
+          })
+      }
+      )
+  }
+
+
+  vm.submitEditAnswer = function(answerId){
+  	answerIdString = answerId.answerId;
+
+  	AnswerFactory.editAnswer(answerIdString, vm.answerEdit).then(function(res){
+  		console.log(res);
+
+  		vm.loading = false;
+  		QuestionFactory.findQuestion($stateParams.id).then(function(res){
+  			vm.question = res;
+  		});
+  		vm.answerEdit = null;
+  	})
+  }
+
+  		//FOR QUESTION--------------------------------------------------------------------
+
+  		vm.deleteQuestion = function(quesiton_id){
+  			QuestionFactory.deleteQuestion(quesiton_id).then(function(res){
+  				$state.go('QuestionsFeed')
+  			});
+  		}
+
+  		vm.editQuestion = function(){
+  			vm.showEdit = true;
+
+  		}
+
+  		vm.submitEdit = function(edit){
+  			vm.showEdit = false;
+
+  			QuestionFactory.editQuestion($stateParams.id, vm.edit).then(function(res){
+  				QuestionFactory.findQuestion($stateParams.id).then(function(res){
+  					vm.question = res
+  					vm.loading = false;
+  					vm.edit = {}
+  				});
+  			});
+  		};
 
 		// VOTING SYSTEM----------------------------------------------------------------
 

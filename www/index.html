@@ -28,6 +28,7 @@
   <script src="js/controllers/ProfileController.js"></script>
   <script src="js/controllers/CreateQuestionController.js"></script>
   <script src="js/controllers/QuestionAnswerController.js"></script>
+  <script src="js/controllers/EditAnswerController.js"></script>
   <script src="js/controllers/MessagingController.js"></script>
   <script src="js/controllers/UserSettingsController.js"></script>
   <script src="js/controllers/VoteController.js"></script>
@@ -87,6 +88,7 @@
 </span>
 
 <span ng-hide='!global.status'>
+
   <span class="custom-icon"><a ui-sref="Messages" ng-click="global.toggleLeft(); global.trueMessages()" class="item ion-chatboxes"><span class="navTitles">&nbsp; &nbsp;Messages</span></a>
 </span>
 
@@ -94,9 +96,11 @@
 </span>
 
 
-<span class="custom-icon"><a href="#/createQuestion" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-ios-glasses"><span class="navTitles">&nbsp; &nbsp;Ask/View Qs</span></a>
+<span class="custom-icon"><a href="#/createQuestion" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-help"><span class="navTitles">&nbsp; &nbsp;Ask Questions</span></a>
 </span>
 
+<span class="custom-icon"><a href="#/questionsFeed" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-ios-glasses"><span class="navTitles">&nbsp; &nbsp;View Questions</span></a>
+</span>
 
 <span class="custom-icon"><a ui-sref="UserSettings()" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-gear-a"><span class="navTitles">&nbsp; &nbsp;User Settings</span></a>
 </span>

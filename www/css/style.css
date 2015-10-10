@@ -101,10 +101,30 @@ a {
 	margin: 6px;
 }
 
+/*answers style======================================================*/
+
 
 .answerCard {
-	box-shadow: inset 0 0 10px #26a69a;
+	box-shadow: inset 0 0 10px #999;
 	padding: .7em;
+	padding-bottom: 0px;
+}
+
+#answerBox {
+	margin-left: 1.6em;
+	margin-top: 10%;
+
+}
+
+#answerBox strong {
+	color: #26a69a;
+}
+
+.rightAnswer {
+	font-size: 3em;
+	color: #999;
+	margin-top:13%;
+	padding-left: .3em;
 }
 
 /*Votes======================================================*/
@@ -120,4 +140,12 @@ a {
 #Qs {
 	padding-left: 1em;
 	padding-right: 1em;
+}
+
+/*Messaging======================================================*/
+
+
+#lastMessage {
+	color: #26a69a;
+	font-style: italic;
 }
