@@ -58,8 +58,10 @@ function Config($stateProvider, $urlRouterProvider) {
   .state('UserSettings',{
     url: '/userSettings/:id',
     templateUrl: 'templates/userSettings.html'
+  }).state('Rank', {
+    url: '/rank/:id',
+    templateUrl: 'templates/rank.html'
   });
-
   $urlRouterProvider.otherwise('/myApp');
 }
 

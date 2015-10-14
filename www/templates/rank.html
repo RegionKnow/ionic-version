@@ -1,0 +1,40 @@
+<ion-view class="text-center">
+<ion-content ng-controller="RankController as vm">
+<p  class="spacer"></p>
+
+<ion-header></ion-header>
+
+<h3>How do you rank in the KnowOff?</h3>
+
+<div class="card" ng-repeat="user in vm.rankObj track by $index">
+
+	<div class="row">
+		<div class="col"><h3>
+			<h1 style="color:#26a69a;">#{{$index + 1}}<br></h1>
+			&nbsp;{{user.name}}
+		</h3>
+		<center><img src="{{user.img}}" style="height: 27%; width: 27%;"></center></div>
+
+
+		<div class="col">
+			<h2>Score - {{user.score}}</h2>
+			<br>
+			<h5>{{user.kPoints}} Knowledge Points
+				<br>
+				{{user.gPoints}} General Points
+			</h5>
+
+		</div>
+	</div>
+
+</div>
+
+
+
+<!-- 
+	<button ng-click="msg.testRequest()" class="button button-balanced ink">{{msg.button}}</button>
+	<h1 ng-show="msg.testMessage">{{msg.testMessage}}</h1> -->
+
+
+</ion-content>
+</ion-view>

@@ -23,6 +23,7 @@
   <script src="js/services/AnswerFactory.js"></script>
   <script src="js/services/QuestionFactory.js"></script>
   <script src="js/services/UserSettingsFactory.js"></script>
+  <script src="js/services/RankFactory.js"></script>
   <!-- controllers -->
   <script src="js/controllers/UserController.js"></script>
   <script src="js/controllers/ProfileController.js"></script>
@@ -32,6 +33,7 @@
   <script src="js/controllers/MessagingController.js"></script>
   <script src="js/controllers/UserSettingsController.js"></script>
   <script src="js/controllers/VoteController.js"></script>
+  <script src="js/controllers/RankController.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR4uInfVhGOVQPhgf8wkvxHpiEEYerVq8"></script>
 </head>
 
@@ -67,7 +69,7 @@
 <ion-side-menu side="left">
 
 <ion-header-bar class="naviBar">
-<h1>RegionKnow</h1>
+<h1>KnowOff</h1>
 </ion-header-bar>
 
 <ion-content class="list">
@@ -78,7 +80,8 @@
 
     <img src="{{global.status._user.image}}" height="100px" width="100px">
 
-    <br>{{global.status._user.username}}
+    <br>
+    <center style="font-size: 1.3em;">{{global.status._user.username}}</center>
   </div>
   <div class="col"></div>
 </div>
@@ -89,8 +92,8 @@
 
 <span ng-hide='!global.status'>
 
-  <span class="custom-icon"><a ui-sref="Messages" ng-click="global.toggleLeft(); global.trueMessages()" class="item ion-chatboxes"><span class="navTitles">&nbsp; &nbsp;Messages</span></a>
-</span>
+<!--   <span class="custom-icon"><a ui-sref="Messages" ng-click="global.toggleLeft(); global.trueMessages()" class="item ion-chatboxes"><span class="navTitles">&nbsp; &nbsp;Messages</span></a>
+</span> -->
 
 <span class="custom-icon"><a ui-sref="UserProfile" ng-click="global.toggleLeft(); global.trueProfile()" class="item ion-person"><span class="navTitles">&nbsp; &nbsp;Profile</span></a>
 </span>
@@ -103,6 +106,9 @@
 </span>
 
 <span class="custom-icon"><a ui-sref="UserSettings()" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-gear-a"><span class="navTitles">&nbsp; &nbsp;User Settings</span></a>
+</span>
+
+<span class="custom-icon"><a ui-sref="Rank" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-stats-bars"><span class="navTitles">&nbsp; &nbsp;Ranking</span></a>
 </span>
 
 </span>

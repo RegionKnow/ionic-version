@@ -85,7 +85,7 @@ Question Detail
 		<div id="answerBox">
 			<strong>{{a.name}} answered:</strong><br> {{a.answerBody}}
 			<br>
-			<i style="font-size: 2em;" class="icon ion-android-more-horizontal ink right" ng-show="!editAnswer" ng-click="editAnswer = true;"></i>
+			<i style="font-size: 2em;" class="icon ion-android-more-horizontal ink right" ng-show="!editAnswer" ng-click="answerOptions = true;"></i>
 
 		</div>
 		<i class="col ion-checkmark  rightAnswer"></i>
@@ -94,31 +94,32 @@ Question Detail
 
 	<div>
 		<br>
-		<ion ng-show="editAnswer">
-			<ion class="item item-input">
-				<input type="text" ng-model="vm.answerEdit" placeholder="{{a.answerBody}}">
-			</ion>
+		<ion ng-show="answerOptions">
+			<div class="row"><button class="button ink ion-chatboxes button-block">&nbsp;MESSAGE THIS ANSWERER</button></div>
+			
 
 			<br>
-
+			
 			<div class="row">
-				<i  class="col ink button-outline button-block" ng-click="editAnswer = false; vm.submitEditAnswer({answerId: a._id})">SUBMIT EDIT</i>
+				<i  class="col ink button-outline button-block" ng-click="editAnswer = true">EDIT ANSWER</i>
 
-				<i class="col ink button-outline button-block" ng-click="editAnswer = false;">DELETE</i>
-
-				<i class="col ink button-outline button-block" ng-click="editAnswer = false;">CANCEL</i>
+				<i class="col ink button-outline button-block" ng-click="editAnswer = false;">DELETE ANSWER</i>
 			</div>
-		</ion>
-	</div>
+			<ion class="item item-input" ng-show="editAnswer">
+				<input type="text" ng-model="vm.answerEdit" placeholder="Edit answer here and submit below...">
+				<button class="col ink button-block button" ng-click="editAnswer = false; vm.submitEditAnswer({answerId: a._id})" require>EDIT ANSWER</button>
+			</ion>
+			<div class="row">
+				<button class="ink button-outline button-block" ng-click="answerOptions = false;" style="margin: auto;">DO NOTHING</button>
+			</ion>
+		</div>
 
 
 
 
-	
 
-</ion>
-
-
-
+	</ion>
 </ion-content>
+
 </ion-view>
+
