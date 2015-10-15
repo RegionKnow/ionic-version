@@ -7,16 +7,16 @@
 		var o = {};
 
 
-		//=============================USER ALERT FUNCTIONALITY====================================
+		// //=============================USER ALERT FUNCTIONALITY====================================
 
-		o.sendAlerts = function(id){
-			console.log('alerting in routes')
-			var q = $q.defer();
-			$http.post('api/question/alert/' + id, null).success(function(res){
-				q.resolve();
-			})
-			return q.promise;
-		}
+		// o.sendAlerts = function(id){
+		// 	console.log('alerting in routes')
+		// 	var q = $q.defer();
+		// 	$http.post('api/question/alert/' + id, null).success(function(res){
+		// 		q.resolve();
+		// 	})
+		// 	return q.promise;
+		// }
 
 		//=============================QUESTION FUNCTIONALITY====================================
 		o.createQuestion = function(question){ // create the question

@@ -36,7 +36,7 @@
 
 		o.filterAlertOn = function(id){
 			var q = $q.defer();
-			$http.post('/api/user/filterAlertOn/' + id).success(function(res){
+			$http.post('http://localhost:3000/api/user/filterAlertOn/' + id).success(function(res){
 				q.resolve();
 			})
 			return q.promise;
@@ -44,7 +44,7 @@
 
 		o.filterAlertOff = function(id){
 			var q = $q.defer();
-			$http.post('/api/user/filterAlertOff/' + id).success(function(res){
+			$http.post('http://localhost:3000/api/user/filterAlertOff/' + id).success(function(res){
 				q.resolve();
 			})
 			return q.promise;
