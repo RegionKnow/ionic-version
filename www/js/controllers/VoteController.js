@@ -12,14 +12,14 @@
 
 
 		vm.upVote = function(){	
-			$http.post('http://localhost:3000/api/question/upvote/' + question_id + '/' + vm.status._user.id, null).success(function(res){
+			$http.post('https://regiknow.herokuapp.com/api/question/upvote/' + question_id + '/' + vm.status._user.id, null).success(function(res){
 				console.log(res)
 				findQuestionVote(question_id);
 			})
 		}
 
 		vm.downVote = function(){
-			$http.post('http://localhost:3000/api/question/downvote/' + question_id + '/' + vm.status._user.id, null).success(function(res, callback){
+			$http.post('https://regiknow.herokuapp.com/api/question/downvote/' + question_id + '/' + vm.status._user.id, null).success(function(res, callback){
 				console.log(res)
 				findQuestionVote(question_id);
 			})

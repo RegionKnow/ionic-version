@@ -1,11 +1,12 @@
 (function() {
 	"use strict";
 	angular.module('regiknow').factory('UserFactory', UserFactory);
-	UserFactory.$inject = ['$q', '$http', "$window", "$rootScope"];
+	UserFactory.$inject = ['$q', '$http', "$window"];
 
-	function UserFactory($q, $http, $window, $rootScope) {
+	function UserFactory($q, $http, $window) {
 		var o = {};
 		o.status = {};
+		o.status._user = isLoggedIn();
 		//---------------------TOKENS----------------------------------------------------
 
 		o.setLoggedinUserToRootScope = function() {
@@ -40,7 +41,7 @@
 		o.registerUser = function(user) {
 			var q = $q.defer();
 			console.log(user);
-			$http.post('http://localhost:3000/api/user/register', user).success(function(res) {
+			$http.post('https://regiknow.herokuapp.com/api/user/register', user).success(function(res) {
 				// o.status.isLoggedIn = true;
 				// o.status.username = user.username;
 				q.resolve();
@@ -51,11 +52,11 @@
 		o.loginUser = function(user) {
 			var q = $q.defer();
 			user.username = user.username.toLowerCase();
-			$http.post('http://localhost:3000/api/user/login', user).success(function(res) {
+			$http.post('https://regiknow.herokuapp.com/api/user/login', user).success(function(res) {
 				setToken(res.token);
 				o.status._user = isLoggedIn();
 				console.log(o.status._user)
-				
+
 				q.resolve();
 			});
 			return q.promise;
@@ -65,7 +66,7 @@
 			console.log(userEdits);
 			console.log(userId);
 			var q = $q.defer();
-			$http.post('http://localhost:3000/api/user/' + userId, userEdits).success(function(res){
+			$http.post('https://regiknow.herokuapp.com/api/user/' + userId, userEdits).success(function(res){
 				q.resolve(res);
 			})
 			return q.promise;
@@ -85,7 +86,7 @@
 
 		o.getUserLoggedIn = function(userId){
 			var q = $q.defer();
-			$http.get('http://localhost:3000/api/user/' + userId).success(function(res){
+			$http.get('https://regiknow.herokuapp.com/api/user/' + userId).success(function(res){
 				q.resolve(res);
 			});
 			return q.promise;

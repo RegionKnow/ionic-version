@@ -15,7 +15,7 @@
               UserFactory.getUserLoggedIn(vm.status._user.id).then(function(res) {
                 vm.userLoggedIn = res;
               });
-            };
+            }
 
             //---------FUNCTIONALITY FOR USER----------------------------------------------------------
 
@@ -134,7 +134,7 @@
         vm.messages = true;
       }
 
-      
+
       // vm.close = function() {
       //   $mdSidenav('left').close()
       //   .then(function() {

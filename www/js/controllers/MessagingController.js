@@ -3,19 +3,23 @@
 	angular.module('regiknow')
 	.controller('MessagingController', MessagingController);
 
-	MessagingController.$inject = ['$http', 'ionicMaterialInk', '$rootScope', "$stateParams", "$state", "UserFactory"];
+	MessagingController.$inject = ['$http', 'ionicMaterialInk', "$stateParams", "$state", "UserFactory"];
 
 	function MessagingController($http, ionicMaterialInk, $stateParams, $state, UserFactory) {
+		ionicMaterialInk.displayEffect();
 		var vm = this;
 		vm.status = UserFactory.status;
 		vm.title = 'Messaging';
 		vm.button = "Test call button";
 
-		ionicMaterialInk.displayEffect();
+		var pusher = new Pusher('92f79ef8623c09c0511e', {
+			encrypted: true
+		});
+
+
 
 		//Setup function/variable associations for controller
 		vm.inConversation;
-		vm.testRequest = testRequest;
 		vm.getConversations = getConversations;
 		vm.openConvo = openConvo;
 		vm.closeConvo = closeConvo;
@@ -29,32 +33,27 @@
     		vm.inConversation = true;
     		vm.recipient = $stateParams.recipient;
     		var participants = {
-    			participantOne: UserFactory.status._user.id,
+    			participantOne: vm.status._user.id,
     			participantTwo: vm.recipient,
-    		}
-    		$http.post('/api/convo/convo-finder', participants).then(function(successResponse) {
+    		};
+    		$http.post('https://regiknow.herokuapp.com/api/convo/convo-finder', participants).then(function(successResponse) {
     			vm.convoInFocus = successResponse.data;
     		}, function(errorResponse) {
     			console.log(errorResponse.data);
     		});
     	} else {
-    		$stateParams.recipient = ""
+    		$stateParams.recipient = "";
     	}
 
-		//End of if bracket
-		vm.testRequest = function () {
-			$http.get('http://localhost:3000/api/convo/').then(function (successResponse) {
-				vm.testMessage = successResponse.body;
-			});
-		};
 
 
 		function getConversations() {
-			$http.post('/api/convo', {
-				userId: UserFactory.status._user.id
+			$http.post('https://regiknow.herokuapp.com/api/convo', {
+				userId: vm.status._user.id
 			}).then(function(successResponse) {
 				if (successResponse.data.conversations.length < 1) {
 					vm.title = "No converstions to display";
+					successResponse.data;
 				} else {
 					vm.conversations = successResponse.data.conversations;
 				}
@@ -62,13 +61,19 @@
 			}, function(errorResponse) {
 
 				console.log(errorResponse.data);
-			})
+			});
 		}
 
 		function openConvo(convoIndex) {
 			vm.convoInFocus = vm.conversations[convoIndex];
-			vm.inConversation = true;
-
+      vm.channel = pusher.subscribe(vm.convoInFocus._id);
+      vm.channel.bind('newMessage', function(data) {
+        $scope.$apply(function() {
+        vm.convoInFocus.messages.push(data.message);
+        // angular.element("html, body").animate({ scrollTop: angular.element(document).height() }, 1000);
+        });
+      });
+      vm.inConversation = true;
 		}
 
 		function closeConvo() {
@@ -78,7 +83,7 @@
 
 
 		function sendMessage() {
-			$http.post("/api/convo/new-message", {
+			$http.post("https://regiknow.herokuapp.com/api/convo/new-message", {
 				convoId: vm.convoInFocus._id,
 				sender: vm.status._user.username,
 				body: vm.newMessage
@@ -88,43 +93,20 @@
 
 			}, function(errorResponse) {
 				console.log(errorResponse.data);
-			})
+			});
 		}
 
 
     	//gets one convo with the participants being an object with the properties participantOne and participantTwo
     	function getOneConvo(participants) {
     		console.log(participants, "getOneConvo");
-    		$http.post('/api/convo/convo-finder', participants).then(function(successResponse) {
+    		$http.post('https://regiknow.herokuapp.com/api/convo/convo-finder', participants).then(function(successResponse) {
     			vm.convoInFocus = successResponse.data;
     		}, function(errorResponse) {
     			console.log(errorResponse.data);
     		});
     	}
 
-
-    	// function openConvoFancy(ev, convoIndex) {
-    	// 	vm.convoInFocus = vm.conversations[convoIndex];
-    	// 	$mdDialog.show({
-    	// 		controller: [function() {
-    	// 			var vm = this;
-    	// 			console.log("Anon Controller");
-    	// 		}],
-    	// 		template: '<md-dialog>' +
-    	// 		'  <md-dialog-content>' +
-    	// 		'     Hi There {{vm.employee}}' +
-    	// 		'  </md-dialog-content>' +
-    	// 		'</md-dialog>',
-     //      // targetEvent: ev,
-     //      clickOutsideToClose: true,
-     //      controllerAs: 'vm'
-     //  })
-    	// 	.then(function(answer) {
-    	// 		console.log('You said the information was "' + answer + '".');
-    	// 	}, function() {
-    	// 		console.log('You cancelled the dialog.');
-    	// 	});
-    	// };
 
     }
 })();

@@ -12,7 +12,7 @@
 			
 			var q = $q.defer();
 
-			$http.get('http://localhost:3000/api/getRanks').success(function(){
+			$http.get('https://regiknow.herokuapp.com/api/getRanks').success(function(){
 				q.resolve();
 			})
 			return q.promise;
@@ -22,7 +22,7 @@
 
 			var q = $q.defer();
 
-			$http.get('http://localhost:3000/api/rank').success(function(res){
+			$http.get('https://regiknow.herokuapp.com/api/rank').success(function(res){
 				q.resolve(res);
 			})
 			return q.promise;

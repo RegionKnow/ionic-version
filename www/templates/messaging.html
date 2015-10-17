@@ -1,29 +1,80 @@
 <ion-view class="text-center">
-<ion-content ng-controller="MessagingController as msg">
-<p  class="spacer"></p>
+	<ion-content ng-controller="MessagingController as msg">
+		<p class="spacer"></p>
 
-<ion-header></ion-header>
+		<ion-header></ion-header>
 
+		{{msg.title}}
+		<div ng-show="!msg.inConversation">
+			<div class="card" ng-repeat='convo in msg.conversations track by $index | orderBy: createdDate'>
 
-<div class="card">
+				<h4 class="title">Message between...
+					<br> {{convo.participantOne.username}}
+					<br> and
+					<br> {{convo.participantTwo.username}}
+				</h4>
+				<i id="lastMessage">{{convo.messages[convo.messages.length - 1].body || "No messages"}}</i>
+				<button class='button ink button-block' ng-click="msg.openConvo($index);">Open Convo</button>
+				<button class='button button-outline ink button-block'>Delete</button>
 
-	<h4 class="title">Message between...<br>
-		{{convo.participantOne.username}}<br>
-		and<br>
-		{{convo.participantTwo.username}}
-	</h4>
-	<i id="lastMessage">{{convo.messages[convo.messages.length - 1].body || "No messages"}}</i>
-	<button class='button ink button-block' ng-click="msg.openConvo($index);">Open Convo</button>
-	<button class='button button-outline ink button-block'>Delete</button>
-
-</div>
-
-
-
-<!-- 
-	<button ng-click="msg.testRequest()" class="button button-balanced ink">{{msg.button}}</button>
-	<h1 ng-show="msg.testMessage">{{msg.testMessage}}</h1> -->
+			</div>
+		</div>
 
 
-</ion-content>
+		<div ng-show="msg.inConversation">
+			<center>
+				<div ng-show="msg.loadingInConvo">
+					<md-progress-circular md-mode='indeterminate' md-diameter='100'></md-progress-circular>
+				</div>
+			</center>
+			<br>
+			<br>
+			<br>
+			<div class='card' id='convoList' style="position: relative; bottom: 128px; margin-top: 138px" ng-hide='msg.loadingInConvo'>
+				<md-card-content>
+					<div ng-show="msg.convoInFocus.participantOne.username === msg.status._user.username">
+						You're talking to <span style="color: rgb(0,150,136); font-size: 25px;">{{msg.convoInFocus.participantTwo.username}}</span>
+					</div>
+					<div ng-show="msg.convoInFocus.participantTwo.username === msg.status._user.username">
+						You're talking to <span style="color: rgb(0,150,136); font-size: 25px;">{{msg.convoInFocus.participantOne.username}}</span>
+					</div>
+					<hr>
+
+					<div ng-repeat="message in msg.convoInFocus.messages track by $index">
+
+						<span>
+			<strong style="font-size: 25px;">{{message.body}}</strong>
+
+			<small>-
+				{{message.sender}} at {{message.createdDate | date:'h:mma, MM/dd/yyyy'}}
+			</small>
+		</span>
+						<hr>
+					</div>
+
+
+
+				</md-card-content>
+			</div>
+			<md-card id="messageForm" style='position: fixed;bottom: 0;'>
+				<md-card-content>
+					<form ng-submit="msg.sendMessage()">
+
+						<md-input-container>
+							<label>Enter Message</label>
+							<input type='text' ng-model="msg.newMessage"></input>
+						</md-input-container>
+
+						<md-button class='md-raised md-primary' ng-disabled="!msg.newMessage" type='submit'>Send Message</md-button>
+						<md-button class='md-raised md-accent' ng-click="msg.closeConvo();">Close Convo</md-button>
+
+					</form>
+				</md-card-content>
+			</md-card>
+		</div>
+
+
+
+
+	</ion-content>
 </ion-view>
