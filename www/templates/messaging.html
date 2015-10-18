@@ -22,59 +22,49 @@
 
 
 		<div ng-show="msg.inConversation">
-			<center>
-				<div ng-show="msg.loadingInConvo">
-					<md-progress-circular md-mode='indeterminate' md-diameter='100'></md-progress-circular>
-				</div>
-			</center>
-			<br>
-			<br>
-			<br>
+
+
 			<div class='card' id='convoList' style="position: relative; bottom: 128px; margin-top: 138px" ng-hide='msg.loadingInConvo'>
-				<md-card-content>
-					<div ng-show="msg.convoInFocus.participantOne.username === msg.status._user.username">
-						You're talking to <span style="color: rgb(0,150,136); font-size: 25px;">{{msg.convoInFocus.participantTwo.username}}</span>
-					</div>
-					<div ng-show="msg.convoInFocus.participantTwo.username === msg.status._user.username">
-						You're talking to <span style="color: rgb(0,150,136); font-size: 25px;">{{msg.convoInFocus.participantOne.username}}</span>
-					</div>
-					<hr>
 
-					<div ng-repeat="message in msg.convoInFocus.messages track by $index">
+				<div ng-show="msg.convoInFocus.participantOne.username === msg.status._user.username">
+					You're talking to <span style="color: rgb(0,150,136); font-size: 25px;">{{msg.convoInFocus.participantTwo.username}}</span>
+				</div>
+				<div ng-show="msg.convoInFocus.participantTwo.username === msg.status._user.username">
+					You're talking to <span style="color: rgb(0,150,136); font-size: 25px;">{{msg.convoInFocus.participantOne.username}}</span>
+				</div>
+				<hr>
 
-						<span>
+				<div ng-repeat="message in msg.convoInFocus.messages track by $index">
+
+					<span>
 			<strong style="font-size: 25px;">{{message.body}}</strong>
 
 			<small>-
 				{{message.sender}} at {{message.createdDate | date:'h:mma, MM/dd/yyyy'}}
 			</small>
 		</span>
-						<hr>
-					</div>
+					<hr>
+				</div>
 
 
 
-				</md-card-content>
+
 			</div>
-			<md-card id="messageForm" style='position: fixed;bottom: 0;'>
-				<md-card-content>
-					<form ng-submit="msg.sendMessage()">
 
-						<md-input-container>
-							<label>Enter Message</label>
-							<input type='text' ng-model="msg.newMessage"></input>
-						</md-input-container>
 
-						<md-button class='md-raised md-primary' ng-disabled="!msg.newMessage" type='submit'>Send Message</md-button>
-						<md-button class='md-raised md-accent' ng-click="msg.closeConvo();">Close Convo</md-button>
-
-					</form>
-				</md-card-content>
-			</md-card>
+			<form ng-submit="msg.sendMessage()">
+				<div id="messageForm" class="col col-100" style='position: fixed; bottom: 0;'>
+					<div class="item item-input-inset ">
+						<label class="item-input-wrapper">
+							<input type="text" ng-model="msg.newMessage" placeholder="Enter message...">
+						</label>
+					</div>
+					<div class="row">
+						<button class='button col col-50' ng-disabled="!msg.newMessage" type='submit'>Send Message</button>
+						<button class='button button-assertive col col-50' ng-click="msg.closeConvo();">Close Convo</button>
+					</div>
+				</div>
+			</form>
 		</div>
-
-
-
-
 	</ion-content>
 </ion-view>

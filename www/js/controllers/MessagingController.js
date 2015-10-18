@@ -3,9 +3,9 @@
 	angular.module('regiknow')
 	.controller('MessagingController', MessagingController);
 
-	MessagingController.$inject = ['$http', 'ionicMaterialInk', "$stateParams", "$state", "UserFactory"];
+	MessagingController.$inject = ['$http', 'ionicMaterialInk', "$stateParams", "$state", "UserFactory", '$scope'];
 
-	function MessagingController($http, ionicMaterialInk, $stateParams, $state, UserFactory) {
+	function MessagingController($http, ionicMaterialInk, $stateParams, $state, UserFactory, $scope) {
 		ionicMaterialInk.displayEffect();
 		var vm = this;
 		vm.status = UserFactory.status;
@@ -68,10 +68,10 @@
 			vm.convoInFocus = vm.conversations[convoIndex];
       vm.channel = pusher.subscribe(vm.convoInFocus._id);
       vm.channel.bind('newMessage', function(data) {
-        $scope.$apply(function() {
         vm.convoInFocus.messages.push(data.message);
-        // angular.element("html, body").animate({ scrollTop: angular.element(document).height() }, 1000);
-        });
+        angular.element("html, body").animate({ scrollTop: angular.element(document).height() }, 1000);
+        // $scope.$apply(function() {
+        // });
       });
       vm.inConversation = true;
 		}
@@ -83,6 +83,7 @@
 
 
 		function sendMessage() {
+			if (!vm.newMessage) return;
 			$http.post("https://regiknow.herokuapp.com/api/convo/new-message", {
 				convoId: vm.convoInFocus._id,
 				sender: vm.status._user.username,
@@ -99,7 +100,12 @@
 
     	//gets one convo with the participants being an object with the properties participantOne and participantTwo
     	function getOneConvo(participants) {
-    		console.log(participants, "getOneConvo");
+				if (!participants) {
+	        participants = {
+	          participantOne: vm.convoInFocus.participantOne,
+	          participantTwo: vm.convoInFocus.participantTwo
+	        };
+	      }
     		$http.post('https://regiknow.herokuapp.com/api/convo/convo-finder', participants).then(function(successResponse) {
     			vm.convoInFocus = successResponse.data;
     		}, function(errorResponse) {
