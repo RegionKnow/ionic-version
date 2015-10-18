@@ -5,6 +5,8 @@
     "ionic": "driftyco/ionic-bower#1.1.0"
   },
   "dependencies": {
-    "angular-material": "~0.11.1"
+    "angular-material": "~0.11.1",
+    "jquery": "~2.1.4",
+    "pusher": "~3.0.0"
   }
 }
