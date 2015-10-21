@@ -1,5 +1,5 @@
 <ion-view class="text-center">
-<ion-content ng-controller="RankController as vm">
+<ion-content  fab-scroll-container ng-controller="RankController as vm">
 <p  class="spacer"></p>
 
 <ion-header></ion-header>
@@ -30,11 +30,13 @@
 </div>
 
 
-
 <!-- 
 	<button ng-click="msg.testRequest()" class="button button-balanced ink">{{msg.button}}</button>
 	<h1 ng-show="msg.testMessage">{{msg.testMessage}}</h1> -->
 
 
 </ion-content>
+<fab ui-sref="CreateQuestion">
+	<i class="icon ion ion-android-add"></i>
+</fab>
 </ion-view>

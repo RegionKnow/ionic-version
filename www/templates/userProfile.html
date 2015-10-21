@@ -1,5 +1,5 @@
 <ion-view class="text-center">
-<ion-content ng-controller="ProfileController as vm">
+<ion-content fab-scroll-container ng-controller="ProfileController as vm">
 <p  class="spacer"></p>
 
 <ion-header><h3 class="title">Hey {{vm.userLoggedIn.username}}!</h3></ion-header>
@@ -47,4 +47,7 @@
 <!-- ng-hide="!vm.userLoggedIn"  -->
 
 </ion-content>
+<fab ui-sref="CreateQuestion">
+	<i class="icon ion ion-android-add"></i>
+</fab>
 </ion-view>

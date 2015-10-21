@@ -6,7 +6,9 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title>RegionKnow</title>
   <link href="lib/ionic-material/dist/ionic.material.css" rel="stylesheet">
+  <link href="lib/angular-material/angular-material.css" rel="stylesheet">
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/fab.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 
   <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above -->
@@ -14,8 +16,13 @@
   <!-- ionic/angularjs js -->
   <script src="lib/jquery/dist/jquery.min.js"></script>
   <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/ionic-material/dist/fab.js"></script>
   <script src="lib/ionic-material/dist/ionic.material.js"></script>
+  <script src="lib/angular-material/angular-material.js"></script>
+  <script src="lib/angular-aria/angular-aria.min.js"></script>
+  <!-- // <script src="lib/ng-material-floating-button/mfb/mfb.js"></script> -->
   <script src="lib/pusher/dist/pusher.min.js"></script>
+
 
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
@@ -37,6 +44,7 @@
   <script src="js/controllers/UserSettingsController.js"></script>
   <script src="js/controllers/VoteController.js"></script>
   <script src="js/controllers/RankController.js"></script>
+  <script src="js/controllers/FabController.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAR4uInfVhGOVQPhgf8wkvxHpiEEYerVq8"></script>
 </head>
 
@@ -45,87 +53,94 @@
   <div ng-controller="UserController as global">
     <!-- SIDE NAV============================================= -->
     <ion-side-menus>
-      <ion-side-menu-content id="topNav">
-        <ion-header-bar class="bar-light">
-          <div class="ion-navicon custom-icon" ng-click="global.toggleLeft()"></div>
+    <ion-side-menu-content id="topNav">
+    <ion-header-bar class="bar-light">
+    <div class="ion-navicon custom-icon" ng-click="global.toggleLeft()"></div>
 
-          <!-- BELOW IS FOR HEADER TITLE TO CHANGE FOR EACH STATE -->
-          <div class="row">
-            <h1 class="title" ng-show="global.welcome">Welcome</h1>
-            <h1 class="title" ng-show="global.userSettings">User Settings</h1>
-            <h1 class="title" ng-show="global.login">Login</h1>
-            <h1 class="title" ng-show="global.profile">Profile</h1>
-            <h1 class="title" ng-show="global.questions">Questions</h1>
-            <h1 class="title" ng-show="global.questionsFeed">Questions</h1>
-            <h1 class="title" ng-show="global.messages">Messages</h1>
-          </div>
+    <!-- BELOW IS FOR HEADER TITLE TO CHANGE FOR EACH STATE -->
+    <div class="row">
+      <h1 class="title" ng-show="global.welcome">Welcome</h1>
+      <h1 class="title" ng-show="global.userSettings">User Settings</h1>
+      <h1 class="title" ng-show="global.login">Login</h1>
+      <h1 class="title" ng-show="global.profile">Profile</h1>
+      <h1 class="title" ng-show="global.questions">Questions</h1>
+      <h1 class="title" ng-show="global.questionsFeed">Questions</h1>
+      <h1 class="title" ng-show="global.messages">Messages</h1>
+    </div>
 
-          <a ui-sref="QuestionsFeed" ng-click="global.trueQsFeed()">
-            <img id="mainLogo" src="img/smallRegionKnowLogo.png">
-          </a>
-          <!-- TOP NAV end============================================= -->
-        </ion-header-bar>
+    <a ui-sref="QuestionsFeed" ng-click="global.trueQsFeed()">
+      <img id="mainLogo" src="img/smallRegionKnowLogo.png">
+    </a>
+    <!-- TOP NAV end============================================= -->
+  </ion-header-bar>
 
-        <ion-nav-view></ion-nav-view>
-
-
-      </ion-side-menu-content>
-
-      <ion-side-menu side="left">
-
-        <ion-header-bar class="naviBar">
-          <h1>RegiKnow</h1>
-        </ion-header-bar>
-
-        <ion-content class="list">
-
-          <div class="row userSection">
-            <div class="col"></div>
-            <div class="col text-center">
-
-              <img src="{{global.status._user.image}}" height="100px" width="100px">
-
-              <br>
-              <center style="font-size: 1.3em;">{{global.status._user.username}}</center>
-            </div>
-            <div class="col"></div>
-          </div>
-
-          <span class="custom-icon" ng-hide='global.status'>
-  <a ui-sref="myApp" ng-click="global.toggleLeft(); global.trueWelcome()" class="item ion-home"><span class="navTitles">&nbsp; &nbsp;Welcome</span></a>
-          </span>
-
-          <span ng-hide='!global.status'>
-
-<span class="custom-icon"><a ui-sref="Messages" ng-click="global.toggleLeft(); global.trueMessages()" class="item ion-chatboxes"><span class="navTitles">&nbsp; &nbsp;Messages</span></a>
-          </span>
-
-          <span class="custom-icon"><a ui-sref="UserProfile" ng-click="global.toggleLeft(); global.trueProfile()" class="item ion-person"><span class="navTitles">&nbsp; &nbsp;Profile</span></a>
-          </span>
+  <!--FLOATING ACTION BUTTON============================================================= -->
 
 
-          <span class="custom-icon"><a href="#/createQuestion" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-help"><span class="navTitles">&nbsp; &nbsp;Ask Questions</span></a>
-          </span>
+  <ion-nav-view></ion-nav-view>
 
-          <span class="custom-icon"><a href="#/questionsFeed" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-ios-glasses"><span class="navTitles">&nbsp; &nbsp;View Questions</span></a>
-          </span>
+  
 
-          <span class="custom-icon"><a ui-sref="UserSettings()" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-gear-a"><span class="navTitles">&nbsp; &nbsp;User Settings</span></a>
-          </span>
+</ion-side-menu-content>
 
-          <span class="custom-icon"><a ui-sref="Rank" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-stats-bars"><span class="navTitles">&nbsp; &nbsp;Ranking</span></a>
-          </span>
+<ion-side-menu side="left">
 
-          </span>
+<ion-header-bar class="naviBar">
+<h1>RegiKnow</h1>
+</ion-header-bar>
 
-          <span ng-hide='global.status' class="custom-icon"><a ui-sref="Login" ng-click="global.toggleLeft(); global.trueLogin()" class="item ion-key"><span class="navTitles">&nbsp; &nbsp;Login</span></a>
-          </span>
+<ion-content class="list">
 
-        </ion-content>
-      </ion-side-menu>
-    </ion-side-menus>
-    <!-- SIDE NAV END============================================= -->
+
+<div class="row userSection">
+  <div class="col"></div>
+  <div class="col text-center">
+
+    <img src="{{global.status._user.image}}" height="100px" width="100px">
+
+    <br>
+    <center style="font-size: 1.3em;">{{global.status._user.username}}</center>
   </div>
+  <div class="col"></div>
+</div>
+
+<span class="custom-icon" ng-hide='global.status'>
+  <a ui-sref="myApp" ng-click="global.toggleLeft(); global.trueWelcome()" class="item ion-home"><span class="navTitles">&nbsp; &nbsp;Welcome</span></a>
+</span>
+
+<span ng-hide='!global.status'>
+
+  <span class="custom-icon"><a ui-sref="Messages" ng-click="global.toggleLeft(); global.trueMessages()" class="item ion-chatboxes"><span class="navTitles">&nbsp; &nbsp;Messages</span></a>
+</span>
+
+<span class="custom-icon"><a ui-sref="UserProfile" ng-click="global.toggleLeft(); global.trueProfile()" class="item ion-person"><span class="navTitles">&nbsp; &nbsp;Profile</span></a>
+</span>
+
+
+<span class="custom-icon"><a href="#/createQuestion" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-help"><span class="navTitles">&nbsp; &nbsp;Ask Questions</span></a>
+</span>
+
+<span class="custom-icon"><a href="#/questionsFeed" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-ios-glasses"><span class="navTitles">&nbsp; &nbsp;View Questions</span></a>
+</span>
+
+<span class="custom-icon"><a ui-sref="UserSettings()" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-gear-a"><span class="navTitles">&nbsp; &nbsp;User Settings</span></a>
+</span>
+
+<span class="custom-icon"><a ui-sref="Rank" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-stats-bars"><span class="navTitles">&nbsp; &nbsp;Ranking</span></a>
+</span>
+
+</span>
+
+<span ng-hide='global.status' class="custom-icon"><a ui-sref="Login" ng-click="global.toggleLeft(); global.trueLogin()" class="item ion-key"><span class="navTitles">&nbsp; &nbsp;Login</span></a>
+</span>
+
+</ion-content>
+</ion-side-menu>
+</ion-side-menus>
+
+
+<!-- SIDE NAV END============================================= -->
+</div>
 
 </body>
 

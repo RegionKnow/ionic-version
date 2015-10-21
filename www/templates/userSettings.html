@@ -1,6 +1,6 @@
 <ion-view class="text-center" >
 
-<ion-content ng-controller="UserSettingsController as vm" >
+<ion-content  fab-scroll-container ng-controller="UserSettingsController as vm" >
 <p  class="spacer"></p>
 
 <ion-header></ion-header>
@@ -87,7 +87,8 @@
 	<span ng-show="vm.tagError">Cannot Submit tag with Spaces</span>
 </div> -->
 
-
-
 </ion-content>
+<fab ui-sref="CreateQuestion">
+	<i class="icon ion ion-android-add"></i>
+</fab>
 </ion-view>
