@@ -1,6 +1,6 @@
 {
   "name": "region-know-ionic",
-  "app_id": "1461cae1",
+  "app_id": "6B7B0BC5",
   "gulpStartupTasks": [
     "sass",
     "watch"
