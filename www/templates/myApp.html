@@ -1,25 +1,30 @@
 <ion-view class="text-center welcomePic" >
 
 <ion-content ng-cloak >
-<p  class="spacer"></p>
+
 
 <ion-header>
-<img id="mainLogo" src="img/smallRegionKnowLogo.png">
-<h3 style="font-size: 17vw;">RegiKnow</h3> 
+
+<h3 style="font-size: 17vw;">
+	<img id="mainLogo" src="img/smallRegionKnowLogo.png">
+	RegiKnow
+</h3> 
 
 
 </ion-header>
 
 <h1 class="col">
-	<a href="#/questionsFeed"><button ng-hide="!global.status" class="button button-raised ink">Ask or view questions</button></a>
-	<a href="#/login"><button ng-hide="global.status" class="button button-raised button-light ink">Login</button></a>
-	<a href="#/register"><button ng-hide="global.status" class="button button-raised ink">Register</button></a>
+	<a href="#/questionsFeed"><button ng-hide="!global.status._user" class="button button-raised ink">Ask or view questions</button></a>
+	<a href="#/login"><button ng-hide="global.status._user" class="button button-raised button-light ink">Login</button></a>
+	<a href="#/register"><button ng-hide="global.status._user" class="button button-raised ink">Register</button></a>
 </h1>
 
-<h1 ng-hide="global.status" class="col">
-	<button  href="https://regiknow.herokuapp.com/api/user/auth/facebook" class="button-positive button-raised icon ion-social-facebook ink">&nbsp;Facebook Login</button>
-	<button  href="https://regiknow.herokuapp.com/api/user/auth/google" class="button-assertive button-raised ion-social-google ink">&nbsp;Google Login</button>
-</h1>
+<div ng-controller='ThirdPartyOAuthcontroller as vm'>
+	<h1 ng-hide="global.status._user" class="col">
+		<button  ng-click="vm.facebookLogin()" class="button-positive button-raised icon ion-social-facebook ink">&nbsp;Facebook Login</button>
+		<button  ng-click="vm.googleLogin()" class="button-assertive button-raised ion-social-google ink">&nbsp;Google Login</button>
+	</h1>
+</div>
 
 
 </ion-content>
