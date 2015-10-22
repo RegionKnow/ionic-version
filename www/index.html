@@ -55,98 +55,107 @@
   <div ng-controller="UserController as global">
     <!-- SIDE NAV============================================= -->
     <ion-side-menus>
-      <ion-side-menu-content id="topNav">
-        <ion-header-bar class="bar-light" ng-show="global.status._user">
-          <div class="ion-navicon custom-icon" ng-click="global.toggleLeft()"></div>
+    
+    <ion-side-menu-content id="topNav">
+    <ion-header-bar class="bar-light" ng-show="global.status._user">
+    <div class="ion-navicon custom-icon" ng-click="global.toggleLeft()"></div>
 
-          <!-- BELOW IS FOR HEADER TITLE TO CHANGE FOR EACH STATE -->
-          <div class="row">
-            <h1 class="title" ng-show="global.welcome">Welcome</h1>
-            <h1 class="title" ng-show="global.userSettings">User Settings</h1>
-            <h1 class="title" ng-show="global.login">Login</h1>
-            <h1 class="title" ng-show="global.profile">Profile</h1>
-            <h1 class="title" ng-show="global.questions">Questions</h1>
-            <h1 class="title" ng-show="global.questionsFeed">Questions</h1>
-            <h1 class="title" ng-show="global.messages">Messages</h1>
-          </div>
+    <!-- BELOW IS FOR HEADER TITLE TO CHANGE FOR EACH STATE -->
+    <div class="row">
+      <h1 class="title" ng-show="global.welcome">Welcome</h1>
+      <h1 class="title" ng-show="global.userSettings">User Settings</h1>
+      <h1 class="title" ng-show="global.login">Login</h1>
+      <h1 class="title" ng-show="global.profile">Profile</h1>
+      <h1 class="title" ng-show="global.questions">Questions</h1>
+      <h1 class="title" ng-show="global.questionsFeed">Questions</h1>
+      <h1 class="title" ng-show="global.messages">Messages</h1>
+    </div>
 
           <!-- <a ui-sref="QuestionsFeed" ng-click="global.trueQsFeed()">
       <img id="mainLogo" src="img/smallRegionKnowLogo.png">
     </a> -->
 
-          <div class="ion-home custom-icon" ui-sref="QuestionsFeed"></div>
-          <!-- TOP NAV end============================================= -->
-        </ion-header-bar>
+    <div class="ion-home custom-icon" ui-sref="QuestionsFeed"></div>
+    <!-- TOP NAV end============================================= -->
+  </ion-header-bar>
+  
 
-        <!--FLOATING ACTION BUTTON============================================================= -->
-
-
-        <ion-nav-view></ion-nav-view>
+  <!--FLOATING ACTION BUTTON============================================================= -->
 
 
-
-      </ion-side-menu-content>
-
-      <ion-side-menu side="left">
-
-        <ion-header-bar class="naviBar">
-          <h1>RegiKnow</h1>
-        </ion-header-bar>
-
-        <ion-content class="list">
+  <ion-nav-view></ion-nav-view>
 
 
-          <div class="row userSection">
-            <div class="col"></div>
-            <div class="col text-center">
 
-              <img ng-src="{{global.status._user.image || 'http://img3.wikia.nocookie.net/__cb20120915054011/fmabyond/images/0/0b/Blank_avatar_240x240.gif'}}" height="100px" width="100px">
+</ion-side-menu-content>
 
-              <br>
-              <center style="font-size: 1.3em;">{{global.status._user.username}}</center>
-            </div>
-            <div class="col"></div>
-          </div>
 
-          <span class="custom-icon" ng-hide="global.status._user">
+<ion-side-menu side="left">
+
+
+<ion-header-bar class="naviBar">
+<h1>RegiKnow</h1>
+</ion-header-bar>
+
+<ion-content class="list">
+
+
+<div class="row userSection">
+  <div class="col"></div>
+  <div class="col text-center">
+
+    <img ng-src="{{global.status._user.image || 'http://img3.wikia.nocookie.net/__cb20120915054011/fmabyond/images/0/0b/Blank_avatar_240x240.gif'}}" height="100px" width="100px">
+
+    <br>
+    <center style="font-size: 1.3em;">{{global.status._user.username}}</center>
+  </div>
+  <div class="col"></div>
+</div>
+
+
+<span class="custom-icon" ng-hide="global.status._user">
+
+
   <a ui-sref="myApp" ng-click="global.toggleLeft(); global.trueWelcome()" class="item ion-home"><span class="navTitles">&#xA0; &#xA0;Welcome</span></a>
-          </span>
+</span>
 
-          <span ng-hide="!global.status._user">
+
+<span ng-hide="!global.status._user">
+
 
   <span class="custom-icon"><a ui-sref="Messages" ng-click="global.toggleLeft(); global.trueMessages()" class="item ion-chatboxes"><span class="navTitles">&#xA0; &#xA0;Messages</span></a>
-          </span>
+</span>
 
-          <span class="custom-icon"><a ui-sref="UserProfile" ng-click="global.toggleLeft(); global.trueProfile()" class="item ion-person"><span class="navTitles">&#xA0; &#xA0;Profile</span></a>
-          </span>
-
-
-          <span class="custom-icon"><a href="#/createQuestion" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-help"><span class="navTitles">&#xA0; &#xA0;Ask Questions</span></a>
-          </span>
-
-          <span class="custom-icon"><a href="#/questionsFeed" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-ios-glasses"><span class="navTitles">&#xA0; &#xA0;View Questions</span></a>
-          </span>
-
-          <span class="custom-icon"><a ui-sref="UserSettings()" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-gear-a"><span class="navTitles">&#xA0; &#xA0;User Settings</span></a>
-          </span>
-
-          <span class="custom-icon"><a ui-sref="Rank" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-stats-bars"><span class="navTitles">&#xA0; &#xA0;Ranking</span></a>
-          </span>
-
-          </span>
-
-          <span ng-hide="global.status._user" class="custom-icon">
-  <a ui-sref="Login" ng-click="global.toggleLeft(); global.trueLogin()" class="item ion-key"><span class="navTitles">&#xA0; &#xA0;Login</span>
-          </a>
-          </span>
-
-        </ion-content>
-      </ion-side-menu>
-    </ion-side-menus>
+<span class="custom-icon"><a ui-sref="UserProfile" ng-click="global.toggleLeft(); global.trueProfile()" class="item ion-person"><span class="navTitles">&#xA0; &#xA0;Profile</span></a>
+</span>
 
 
-    <!-- SIDE NAV END============================================= -->
-  </div>
+<span class="custom-icon"><a href="#/createQuestion" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-help"><span class="navTitles">&#xA0; &#xA0;Ask Questions</span></a>
+</span>
+
+<span class="custom-icon"><a href="#/questionsFeed" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-ios-glasses"><span class="navTitles">&#xA0; &#xA0;View Questions</span></a>
+</span>
+
+<span class="custom-icon"><a ui-sref="UserSettings()" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-gear-a"><span class="navTitles">&#xA0; &#xA0;User Settings</span></a>
+</span>
+
+<span class="custom-icon"><a ui-sref="Rank" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-stats-bars"><span class="navTitles">&#xA0; &#xA0;Ranking</span></a>
+</span>
+
+</span>
+
+
+<span ng-hide="global.status._user" class="custom-icon"><a ui-sref="Login" ng-click="global.toggleLeft(); global.trueLogin()" class="item ion-key"><span class="navTitles">&#xA0; &#xA0;Login</span></a>
+</span>
+
+
+</ion-content>
+</ion-side-menu>
+</ion-side-menus>
+
+
+<!-- SIDE NAV END============================================= -->
+</div>
 
 </body>
 
