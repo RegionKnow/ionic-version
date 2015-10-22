@@ -26,10 +26,14 @@ a {
 /*===========NAVIGATION STYLES===========*/
 .custom-icon {
 	color: #26a69a;
-	font-size: 3em;
+	font-size: 2em;
 	z-index: 1;
-	margin-top: -.2em;
 	margin-left: .1em;
+}
+
+.home-icon {
+	font-size: 1.7em;
+	color: #26a69a;
 }
 
 .ion-keys  {

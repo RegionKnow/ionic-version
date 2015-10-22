@@ -54,7 +54,7 @@
     <!-- SIDE NAV============================================= -->
     <ion-side-menus>
     <ion-side-menu-content id="topNav">
-    <ion-header-bar class="bar-light" ng-show="global.status">
+    <ion-header-bar class="bar-light" ng-show="global.status._user">
     <div class="ion-navicon custom-icon" ng-click="global.toggleLeft()"></div>
 
     <!-- BELOW IS FOR HEADER TITLE TO CHANGE FOR EACH STATE -->
@@ -72,7 +72,7 @@
       <img id="mainLogo" src="img/smallRegionKnowLogo.png">
     </a> -->
 
-    <div class="ion-home custom-icon" ui-sref="QuestionsFeed"></div>
+    <div class="ion-home home-icon" ui-sref="QuestionsFeed"></div>
     <!-- TOP NAV end============================================= -->
   </ion-header-bar>
 
@@ -88,6 +88,7 @@
 <ion-side-menu side="left">
 
 <ion-header-bar class="naviBar">
+
 <h1>RegiKnow</h1>
 </ion-header-bar>
 
@@ -106,11 +107,11 @@
   <div class="col"></div>
 </div>
 
-<span class="custom-icon" ng-hide="global.status">
+<span class="custom-icon" ng-hide="global.status._user">
   <a ui-sref="myApp" ng-click="global.toggleLeft(); global.trueWelcome()" class="item ion-home"><span class="navTitles">&#xA0; &#xA0;Welcome</span></a>
 </span>
 
-<span ng-hide="!global.status">
+<span ng-hide="!global.status._user">
 
   <span class="custom-icon"><a ui-sref="Messages" ng-click="global.toggleLeft(); global.trueMessages()" class="item ion-chatboxes"><span class="navTitles">&#xA0; &#xA0;Messages</span></a>
 </span>
@@ -133,7 +134,7 @@
 
 </span>
 
-<span ng-hide="global.status" class="custom-icon"><a ui-sref="Login" ng-click="global.toggleLeft(); global.trueLogin()" class="item ion-key"><span class="navTitles">&#xA0; &#xA0;Login</span></a>
+<span ng-hide="global.status._user" class="custom-icon"><a ui-sref="Login" ng-click="global.toggleLeft(); global.trueLogin()" class="item ion-key"><span class="navTitles">&#xA0; &#xA0;Login</span></a>
 </span>
 
 </ion-content>

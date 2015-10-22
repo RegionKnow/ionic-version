@@ -20,10 +20,19 @@
 		//=============CREATING & GETTING ALL QUESTIONS WITH ANSWERS=====================================
 		vm.getQuestions = function(){
 			QuestionFactory.findQuestions(vm.status._user.id).then(function(res){
-				vm.allquestions = res;
+				vm.Qfeed = false;
+				vm.allquestions = res.map(function (item) {
+					item.createdDate = new Date(item.createdDate);
+					item.dateInMilliseconds = item.createdDate.getTime();
+					return item;
+				}).sort(function (a, b) {
+					return b.dateInMilliseconds - a.dateInMilliseconds;
+				});
 			});
 		};
 		vm.getQuestions(); //getting all questions when page loads
+
+		
 
 		
 		vm.createQ = function(){
