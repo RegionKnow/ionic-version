@@ -54,7 +54,7 @@
     <!-- SIDE NAV============================================= -->
     <ion-side-menus>
     <ion-side-menu-content id="topNav">
-    <ion-header-bar class="bar-light">
+    <ion-header-bar class="bar-light" ng-show="global.status">
     <div class="ion-navicon custom-icon" ng-click="global.toggleLeft()"></div>
 
     <!-- BELOW IS FOR HEADER TITLE TO CHANGE FOR EACH STATE -->
@@ -68,9 +68,11 @@
       <h1 class="title" ng-show="global.messages">Messages</h1>
     </div>
 
-    <a ui-sref="QuestionsFeed" ng-click="global.trueQsFeed()">
+    <!-- <a ui-sref="QuestionsFeed" ng-click="global.trueQsFeed()">
       <img id="mainLogo" src="img/smallRegionKnowLogo.png">
-    </a>
+    </a> -->
+
+    <div class="ion-home custom-icon" ui-sref="QuestionsFeed"></div>
     <!-- TOP NAV end============================================= -->
   </ion-header-bar>
 
@@ -104,34 +106,34 @@
   <div class="col"></div>
 </div>
 
-<span class="custom-icon" ng-hide='global.status'>
-  <a ui-sref="myApp" ng-click="global.toggleLeft(); global.trueWelcome()" class="item ion-home"><span class="navTitles">&nbsp; &nbsp;Welcome</span></a>
+<span class="custom-icon" ng-hide="global.status">
+  <a ui-sref="myApp" ng-click="global.toggleLeft(); global.trueWelcome()" class="item ion-home"><span class="navTitles">&#xA0; &#xA0;Welcome</span></a>
 </span>
 
-<span ng-hide='!global.status'>
+<span ng-hide="!global.status">
 
-  <span class="custom-icon"><a ui-sref="Messages" ng-click="global.toggleLeft(); global.trueMessages()" class="item ion-chatboxes"><span class="navTitles">&nbsp; &nbsp;Messages</span></a>
+  <span class="custom-icon"><a ui-sref="Messages" ng-click="global.toggleLeft(); global.trueMessages()" class="item ion-chatboxes"><span class="navTitles">&#xA0; &#xA0;Messages</span></a>
 </span>
 
-<span class="custom-icon"><a ui-sref="UserProfile" ng-click="global.toggleLeft(); global.trueProfile()" class="item ion-person"><span class="navTitles">&nbsp; &nbsp;Profile</span></a>
+<span class="custom-icon"><a ui-sref="UserProfile" ng-click="global.toggleLeft(); global.trueProfile()" class="item ion-person"><span class="navTitles">&#xA0; &#xA0;Profile</span></a>
 </span>
 
 
-<span class="custom-icon"><a href="#/createQuestion" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-help"><span class="navTitles">&nbsp; &nbsp;Ask Questions</span></a>
+<span class="custom-icon"><a href="#/createQuestion" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-help"><span class="navTitles">&#xA0; &#xA0;Ask Questions</span></a>
 </span>
 
-<span class="custom-icon"><a href="#/questionsFeed" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-ios-glasses"><span class="navTitles">&nbsp; &nbsp;View Questions</span></a>
+<span class="custom-icon"><a href="#/questionsFeed" ng-click="global.toggleLeft(); global.trueQuestions()" class="item ion-ios-glasses"><span class="navTitles">&#xA0; &#xA0;View Questions</span></a>
 </span>
 
-<span class="custom-icon"><a ui-sref="UserSettings()" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-gear-a"><span class="navTitles">&nbsp; &nbsp;User Settings</span></a>
+<span class="custom-icon"><a ui-sref="UserSettings()" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-gear-a"><span class="navTitles">&#xA0; &#xA0;User Settings</span></a>
 </span>
 
-<span class="custom-icon"><a ui-sref="Rank" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-stats-bars"><span class="navTitles">&nbsp; &nbsp;Ranking</span></a>
+<span class="custom-icon"><a ui-sref="Rank" ng-click="global.toggleLeft(); global.trueUserSettings()" class="item ion-stats-bars"><span class="navTitles">&#xA0; &#xA0;Ranking</span></a>
 </span>
 
 </span>
 
-<span ng-hide='global.status' class="custom-icon"><a ui-sref="Login" ng-click="global.toggleLeft(); global.trueLogin()" class="item ion-key"><span class="navTitles">&nbsp; &nbsp;Login</span></a>
+<span ng-hide="global.status" class="custom-icon"><a ui-sref="Login" ng-click="global.toggleLeft(); global.trueLogin()" class="item ion-key"><span class="navTitles">&#xA0; &#xA0;Login</span></a>
 </span>
 
 </ion-content>

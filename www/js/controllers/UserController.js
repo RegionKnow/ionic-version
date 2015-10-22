@@ -135,12 +135,12 @@
       }
 
 
-      // vm.close = function() {
-      //   $mdSidenav('left').close()
-      //   .then(function() {
-      //     $log.debug("close LEFT is done");
-      //   });
-      // }
+      vm.close = function() {
+        $mdSidenav('left').close()
+        .then(function() {
+          $log.debug("close LEFT is done");
+        });
+      }
 
 
     }
