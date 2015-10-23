@@ -20,10 +20,47 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "com.ionic.keyboard",
+    {
+      "locator": "https://github.com/Pushwoosh/pushwoosh-phonegap-3.0-plugin.git",
+      "id": "com.pushwoosh.plugins.pushwoosh"
+    },
+    "cordova-plugin-media",
+    "cordova-plugin-file",
+    "cordova-plugin-dialogs",
+    {
+      "locator": "https://github.com/phonegap-build/PushPlugin",
+      "id": "com.phonegap.plugins.PushPlugin"
+    },
+    {
+      "locator": "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git",
+      "id": "cordova-plugin-x-toast"
+    },
+    {
+      "locator": "https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git",
+      "id": "cordova-plugin-inappbrowser"
+    },
+    {
+      "id": "phonegap-facebook-plugin",
+      "locator": "https://github.com/phonegap/phonegap-facebook-plugin.git",
+      "variables": {
+        "APP_ID": "755751737864267",
+        "APP_NAME": "RegiKnow"
+      }
+    },
     "phonegap-plugin-push"
   ],
   "cordovaPlatforms": [
     "ios",
-    "android"
+    "android",
+    {
+      "platform": "android",
+      "version": "",
+      "locator": "android"
+    },
+    {
+      "platform": "ios",
+      "version": "",
+      "locator": "ios"
+    }
   ]
 }
