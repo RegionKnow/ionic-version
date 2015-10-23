@@ -1,5 +1,5 @@
 <ion-view class="text-center">
-<ion-content  fab-scroll-container ng-controller="RankController as vm">
+<ion-content  has-bouncing="false" id="scrollFabButtonTarget" ng-controller="RankController as vm">
 <p  class="spacer"></p>
 
 <ion-header></ion-header>
@@ -36,7 +36,7 @@
 
 
 </ion-content>
-<fab ui-sref="CreateQuestion">
+<fab-button ui-sref="CreateQuestion" target-id="scrollFabButtonTarget">
 	<i class="icon ion ion-android-add"></i>
-</fab>
+</fab-button>
 </ion-view>

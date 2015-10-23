@@ -18,7 +18,8 @@ $balanced:                        teal !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-
+$appColorPrimary: #26a69a;
+$potentialColor: #3f51b5;
 
 
 // Include all of Ionic
@@ -37,7 +38,7 @@ a {
 }
 
 .button {
-	background: #26a69a;
+	background: $appColorPrimary;
 	color: white;
 	border: none;
 }
@@ -51,7 +52,7 @@ a {
 }
 /*===========NAVIGATION STYLES===========*/
 .custom-icon {
-	color: #26a69a;
+	color: $appColorPrimary;
 	font-size: 2em;
 	z-index: 1;
 	margin-left: .1em;
@@ -59,7 +60,7 @@ a {
 
 .home-icon {
 	font-size: 1.7em;
-	color: #26a69a;
+	color: $appColorPrimary;
 }
 
 .ion-keys  {
@@ -71,7 +72,7 @@ a {
 }
 
 .naviBar h1 {
-	color: #26a69a;
+	color: $appColorPrimary;
 	width: 100%;
 	margin:0px;
 	padding: 0px;
@@ -106,7 +107,7 @@ a {
 .userSection {
 	margin-top: -1.6em;
 	padding-top: 3em;
-	background: #26a69a;
+	background: $appColorPrimary;
 	color: white;
 	height: 70%;
 }
@@ -153,7 +154,7 @@ a {
 }
 
 #answerBox strong {
-	color: #26a69a;
+	color: $appColorPrimary;
 }
 
 .rightAnswer {
@@ -170,7 +171,7 @@ a {
 }
 
 .voteBox {
-	border: thin solid #26a69a;
+	border: thin solid $appColorPrimary;
 }
 
 #Qs {
@@ -182,6 +183,6 @@ a {
 
 
 #lastMessage {
-	color: #26a69a;
+	color: $appColorPrimary;
 	font-style: italic;
 }

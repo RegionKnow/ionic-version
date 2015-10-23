@@ -66,8 +66,8 @@
     -webkit-animation-name: fadeOutDown;
     animation-name: fadeOutDown;
 }
-.fab {
-    background-color: rgb(63, 81, 181);
+.fab-button {
+    background-color: $appColorPrimary;
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -87,16 +87,13 @@
     transition-property: transform, box-shadow;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
-.fab.activated {
+.fab-button.activated {
     opacity: 0.9;
     -webkit-transform: translate3d(0, -1px, 0);
     transform: translate3d(0, -1px, 0);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
-.fab .icon{
+.fab-button .icon {
     font-size: 24px;
     color: #ffffff;
-}
-.fab svg{
-    fill: #fff;
 }

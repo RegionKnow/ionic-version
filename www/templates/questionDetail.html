@@ -1,5 +1,5 @@
 <ion-view class="text-center">
-<ion-content fab-scroll-container ng-controller="QuestionAnswerController as vm">
+<ion-content has-bouncing="false" id="scrollFabButtonTarget" ng-controller="QuestionAnswerController as vm">
 
 <!-- <ion-header-bar>
 Question Detail
@@ -120,8 +120,8 @@ Question Detail
 
 	</ion>
 </ion-content>
-<fab ui-sref="CreateQuestion">
+<fab-button ui-sref="CreateQuestion" target-id="scrollFabButtonTarget">
 	<i class="icon ion ion-android-add"></i>
-</fab>
+</fab-button>
 </ion-view>
 

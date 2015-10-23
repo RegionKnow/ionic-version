@@ -1,6 +1,6 @@
 <ion-view >
 
-<ion-content fab-scroll-container ng-controller="CreateQuestionController as vm" >
+<ion-content id="scrollFabButtonTarget" ng-controller="CreateQuestionController as vm" >
 
 <p  class="spacer"></p>
 
@@ -12,7 +12,7 @@
 	<label class="item item-input">
 		<input type="text" class="form-control" placeholder="Type Question Here..." ng-model="vm.desc"/>
 	</label>
-	
+
 </ion>
 
 <ion class="list" >
@@ -27,7 +27,7 @@
 
 </ion>
 
-<div>	
+<div>
 	<div class="tags" ng-show="showTags" ng-repeat="tag in vm.tags track by $index">
 		{{tag}}
 		<span ng-click="vm.deleteTag($index)" class="ion-close-round">
@@ -43,7 +43,7 @@
 		<input type="text" class="form-control" ng-model="vm.questionLocation" placeholder="Type location here..">
 		<button class="button ion-checkmark-round ink" ng-click="vm.addQlocaiton(); showTags = true;"></button>
 	</ion>
-	
+
 </ion>
 
 <div ng-show="vm.mapStatus" id="map"></div>
@@ -59,7 +59,7 @@
 </div>
 
 </ion-content>
-<fab ui-sref="CreateQuestion">
-	<i class="icon ion ion-android-add"></i>
-</fab>
+<fab-button ui-sref="CreateQuestion" target-id="scrollFabButtonTarget">
+    <i class="icon ion ion-android-add"></i>
+</fab-button>
 </ion-view>

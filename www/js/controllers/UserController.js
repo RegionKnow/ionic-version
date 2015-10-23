@@ -11,10 +11,11 @@
 
             //---------FUNCTIONALITY FOR USERLOGGEDIN----------------------------------------------------------
 
-            if(vm.status) {
-              UserFactory.getUserLoggedIn(vm.status._user.id).then(function(res) {
-                vm.userLoggedIn = res;
-              });
+            if(vm.status._user) {
+              // UserFactory.getUserLoggedIn(vm.status._user.id).then(function(res) {
+              //   vm.userLoggedIn = res;
+              // });
+							$state.go("QuestionsFeed")
             }
 
             //---------FUNCTIONALITY FOR USER----------------------------------------------------------

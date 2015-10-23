@@ -1,5 +1,5 @@
 <ion-view class="text-center">
-<ion-content fab-scroll-container ng-controller="MessagingController as msg">
+<ion-content has-bouncing="false" id="scrollFabButtonTarget" ng-controller="MessagingController as msg">
 <p class="spacer"></p>
 
 <ion-header></ion-header>
@@ -67,7 +67,7 @@
 	</form>
 </div>
 </ion-content>
-<fab ui-sref="CreateQuestion">
-	<i class="icon ion ion-android-add"></i>
-</fab>
+<fab-button ui-sref="CreateQuestion" target-id="scrollFabButtonTarget">
+	<i class="icon ion ion-paper-airplane"></i>
+</fab-button>
 </ion-view>

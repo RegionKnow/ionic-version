@@ -7741,8 +7741,8 @@ a.button {
   -webkit-animation-name: fadeOutDown;
   animation-name: fadeOutDown; }
 
-.fab {
-  background-color: #3f51b5;
+.fab-button {
+  background-color: #26a69a;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -7762,18 +7762,15 @@ a.button {
   transition-property: transform, box-shadow;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
 
-.fab.activated {
+.fab-button.activated {
   opacity: 0.9;
   -webkit-transform: translate3d(0, -1px, 0);
   transform: translate3d(0, -1px, 0);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); }
 
-.fab .icon {
+.fab-button .icon {
   font-size: 24px;
   color: #ffffff; }
-
-.fab svg {
-  fill: #fff; }
 
 /* Empty. Add your own CSS if you like */
 ion-content {
@@ -7798,10 +7795,13 @@ a {
 /*===========NAVIGATION STYLES===========*/
 .custom-icon {
   color: #26a69a;
-  font-size: 3em;
+  font-size: 2em;
   z-index: 1;
-  margin-top: -.2em;
   margin-left: .1em; }
+
+.home-icon {
+  font-size: 1.7em;
+  color: #26a69a; }
 
 .ion-keys {
   font-size: 1.3em; }
@@ -7830,7 +7830,7 @@ a {
   background-image: url("https://s-media-cache-ak0.pinimg.com/736x/23/7b/e6/237be67444f3fc45daaa303135700428.jpg"); }
 
 .welcomePic h3 {
-  padding-top: 60%;
+  padding-top: 50%;
   color: white;
   font-weight: bolder;
   font-size: 2.7em;
