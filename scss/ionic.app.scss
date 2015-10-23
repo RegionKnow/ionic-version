@@ -18,9 +18,171 @@ $balanced:                        teal !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-
+$appColorPrimary: #26a69a;
+$potentialColor: #3f51b5;
 
 
 // Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
+@import "www/lib/ionic/scss/ionic", 'fab';
 
+/* Empty. Add your own CSS if you like */
+
+
+ion-content {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+/*LINK STYLES============================================================*/
+a {
+	text-decoration: none;
+}
+
+.button {
+	background: $appColorPrimary;
+	color: white;
+	border: none;
+}
+
+.search {
+	font-size: 2em;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+	display: none;
+}
+/*===========NAVIGATION STYLES===========*/
+.custom-icon {
+	color: $appColorPrimary;
+	font-size: 2em;
+	z-index: 1;
+	margin-left: .1em;
+}
+
+.home-icon {
+	font-size: 1.7em;
+	color: $appColorPrimary;
+}
+
+.ion-keys  {
+	font-size: 1.3em;
+}
+
+#mainLogo {
+	width: 79px;
+}
+
+.naviBar h1 {
+	color: $appColorPrimary;
+	width: 100%;
+	margin:0px;
+	padding: 0px;
+	font-size: 1.3em;
+	text-align: center;
+	margin: auto;
+}
+
+.navTitles {
+	color: #333;
+	font-size: 1.3em;
+}
+
+.spacer {
+	height: 3em;
+}
+/*STYLING FOR WELCOME PAGE AND TITLE FOR EACH STATE======================================================*/
+.welcomePic {
+	background-image: url("https://s-media-cache-ak0.pinimg.com/736x/23/7b/e6/237be67444f3fc45daaa303135700428.jpg");
+
+}
+
+.welcomePic h3 {
+	padding-top: 50%;
+	color:white;
+	font-weight: bolder;
+	font-size: 2.7em;
+	text-shadow: 1px 3px 3px #000;
+}
+
+
+.userSection {
+	margin-top: -1.6em;
+	padding-top: 3em;
+	background: $appColorPrimary;
+	color: white;
+	height: 70%;
+}
+
+
+/*STYLING FOR USER SETTINGS AND MAP======================================================*/
+
+#settingsRadius{
+	width: 60%;
+	height: 47px;
+	font-size: 1.3em;
+	display: inline;
+	margin-bottom: 1em;
+}
+#map{
+	height: 200px;
+	width: 100%;
+	margin-top: 1.7em;
+}
+
+/*STYLING TAGS======================================================*/
+
+
+.tags {
+	display: inline-block;
+	box-shadow: 1px 2px 6px #333;
+	padding: 7px;
+	margin: 6px;
+}
+
+/*answers style======================================================*/
+
+
+.answerCard {
+	box-shadow: inset 0 0 10px #999;
+	padding: .7em;
+	padding-bottom: 0px;
+}
+
+#answerBox {
+	margin-left: 1.6em;
+	margin-top: 10%;
+
+}
+
+#answerBox strong {
+	color: $appColorPrimary;
+}
+
+.rightAnswer {
+	font-size: 3em;
+	color: #999;
+	margin-top:13%;
+	padding-left: .3em;
+}
+
+/*Votes======================================================*/
+
+#voteNumber {
+	font-size: 1.9em;
+}
+
+.voteBox {
+	border: thin solid $appColorPrimary;
+}
+
+#Qs {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+/*Messaging======================================================*/
+
+
+#lastMessage {
+	color: $appColorPrimary;
+	font-style: italic;
+}

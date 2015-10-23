@@ -1,42 +1,41 @@
 <ion-view>
-<ion-content fab-scroll-container ng-controller="CreateQuestionController as vm">
-
-<p  class="spacer"></p>
-
-
-
-<div class="text-center">
-	<a ui-sref="CreateQuestion"><button class="button ink">Post a Question</button></a>
-	<button ng-click="searchQs = true;" class="button button-outline ink ion-search search"></button>
-</div>
-
-<div ng-show="searchQs">
-	<label  class="item item-input">
-		<input type="text" class="form-control" ng-model="search.questionBody" placeholder="Search Questions..."/>
-	</label>
-</div>
-
-<br>
-<div class="text-center">CLICK ON A QUESTION TO ANSWER IT</div>
-
-<ion ng-repeat="q in vm.allquestions | filter: search " ng-show="q.isDeleted != true">
-
-	<a  ui-sref="QuestionDetail({id: q._id})">
-		<div class="card">
-			
-
-			<div class="item item-text-wrap row">
-				<div class="col-left button button-outline button-fab"><img ng-src ="{{q.img}}"></div>
-				<div class="col">{{q.questionBody}}</div>
-
-			</div>
+	<ion-content has-bouncing="false" id="scrollFabButtonTarget" ng-controller="CreateQuestionController as vm">
+		<p class="spacer"></p>
+		<div class="text-center">
+			<a ui-sref="CreateQuestion">
+				<button class="button ink">Post a Question</button>
+			</a>
+			<button ng-click="searchQs = true;" class="button button-outline ink ion-search search"></button>
 		</div>
-	</a>
+		<div ng-show="searchQs">
+			<label class="item item-input">
+				<input type="text" class="form-control" ng-model="search.questionBody" placeholder="Search Questions..." />
+			</label>
+		</div>
 
-</ion>
+		<br>
+		<div class="text-center">CLICK ON A QUESTION TO ANSWER IT</div>
 
-</ion-content>
-<fab ui-sref="CreateQuestion">
-	<i class="icon ion ion-android-add"></i>
-</fab>
+		<ion-list>
+			<ion-list-item ng-repeat="q in vm.allquestions | filter: search " ng-show="q.isDeleted != true">
+				<a ui-sref="QuestionDetail({id: q._id})">
+					<div class="card">
+
+
+						<div class="item item-text-wrap row">
+							<div class="col-left button button-outline button-fab">
+								<img ng-src="{{q.img}}">
+							</div>
+							<div class="col">{{q.questionBody}}</div>
+
+						</div>
+					</div>
+				</a>
+			</ion-list-item>
+		</ion-list>
+
+	</ion-content>
+	<fab-button ui-sref="CreateQuestion" target-id="scrollFabButtonTarget">
+		<i class="icon ion ion-android-add"></i>
+	</fab-button>
 </ion-view>

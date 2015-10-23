@@ -68,10 +68,11 @@
 			vm.convoInFocus = vm.conversations[convoIndex];
       vm.channel = pusher.subscribe(vm.convoInFocus._id);
       vm.channel.bind('newMessage', function(data) {
-        vm.convoInFocus.messages.push(data.message);
         angular.element("html, body").animate({ scrollTop: angular.element(document).height() }, 1000);
-        // $scope.$apply(function() {
-        // });
+        $scope.$apply(function() {
+
+        vm.convoInFocus.messages.push(data.message);
+        });
       });
       vm.inConversation = true;
 		}

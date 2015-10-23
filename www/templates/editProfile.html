@@ -1,6 +1,6 @@
 <ion-view >
 
-<ion-content fab-scroll-container>
+<ion-content has-bouncing="false" id="scrollFabButtonTarget">
 <p  class="spacer"></p>
 
 <ion-header><h3 class="title">Edit</h3></ion-header>
@@ -36,7 +36,7 @@
 
 
 </ion-content>
-<fab ui-sref="CreateQuestion">
+<fab-button ui-sref="CreateQuestion" target-id="scrollFabButtonTarget">
 	<i class="icon ion ion-android-add"></i>
-</fab>
+</fab-button>
 </ion-view>

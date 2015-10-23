@@ -7683,3 +7683,217 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.animated {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none; } }
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none; } }
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp; }
+
+@-webkit-keyframes fadeOutDown {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); } }
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1; }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0); } }
+
+.fadeOutDown {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown; }
+
+.fab-button {
+  background-color: #26a69a;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  border: none;
+  z-index: 20;
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  -webkit-transition-property: -webkit-transform, box-shadow;
+  transition-property: transform, box-shadow;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
+
+.fab-button.activated {
+  opacity: 0.9;
+  -webkit-transform: translate3d(0, -1px, 0);
+  transform: translate3d(0, -1px, 0);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4); }
+
+.fab-button .icon {
+  font-size: 24px;
+  color: #ffffff; }
+
+/* Empty. Add your own CSS if you like */
+ion-content {
+  padding-left: 1em;
+  padding-right: 1em; }
+
+/*LINK STYLES============================================================*/
+a {
+  text-decoration: none; }
+
+.button {
+  background: #26a69a;
+  color: white;
+  border: none; }
+
+.search {
+  font-size: 2em; }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none; }
+
+/*===========NAVIGATION STYLES===========*/
+.custom-icon {
+  color: #26a69a;
+  font-size: 2em;
+  z-index: 1;
+  margin-left: .1em; }
+
+.home-icon {
+  font-size: 1.7em;
+  color: #26a69a; }
+
+.ion-keys {
+  font-size: 1.3em; }
+
+#mainLogo {
+  width: 79px; }
+
+.naviBar h1 {
+  color: #26a69a;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.3em;
+  text-align: center;
+  margin: auto; }
+
+.navTitles {
+  color: #333;
+  font-size: 1.3em; }
+
+.spacer {
+  height: 3em; }
+
+/*STYLING FOR WELCOME PAGE AND TITLE FOR EACH STATE======================================================*/
+.welcomePic {
+  background-image: url("https://s-media-cache-ak0.pinimg.com/736x/23/7b/e6/237be67444f3fc45daaa303135700428.jpg"); }
+
+.welcomePic h3 {
+  padding-top: 50%;
+  color: white;
+  font-weight: bolder;
+  font-size: 2.7em;
+  text-shadow: 1px 3px 3px #000; }
+
+.userSection {
+  margin-top: -1.6em;
+  padding-top: 3em;
+  background: #26a69a;
+  color: white;
+  height: 70%; }
+
+/*STYLING FOR USER SETTINGS AND MAP======================================================*/
+#settingsRadius {
+  width: 60%;
+  height: 47px;
+  font-size: 1.3em;
+  display: inline;
+  margin-bottom: 1em; }
+
+#map {
+  height: 200px;
+  width: 100%;
+  margin-top: 1.7em; }
+
+/*STYLING TAGS======================================================*/
+.tags {
+  display: inline-block;
+  box-shadow: 1px 2px 6px #333;
+  padding: 7px;
+  margin: 6px; }
+
+/*answers style======================================================*/
+.answerCard {
+  box-shadow: inset 0 0 10px #999;
+  padding: .7em;
+  padding-bottom: 0px; }
+
+#answerBox {
+  margin-left: 1.6em;
+  margin-top: 10%; }
+
+#answerBox strong {
+  color: #26a69a; }
+
+.rightAnswer {
+  font-size: 3em;
+  color: #999;
+  margin-top: 13%;
+  padding-left: .3em; }
+
+/*Votes======================================================*/
+#voteNumber {
+  font-size: 1.9em; }
+
+.voteBox {
+  border: thin solid #26a69a; }
+
+#Qs {
+  padding-left: 1em;
+  padding-right: 1em; }
+
+/*Messaging======================================================*/
+#lastMessage {
+  color: #26a69a;
+  font-style: italic; }
