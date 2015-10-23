@@ -11,6 +11,7 @@
 		vm.status = UserFactory.status;
 		vm.title = 'Messaging';
 		vm.button = "Test call button";
+		console.log("Message Controller loaded");
 
 		var pusher = new Pusher('92f79ef8623c09c0511e', {
 			encrypted: true
@@ -38,6 +39,7 @@
     		};
     		$http.post('https://regiknow.herokuapp.com/api/convo/convo-finder', participants).then(function(successResponse) {
     			vm.convoInFocus = successResponse.data;
+					openConvo();
     		}, function(errorResponse) {
     			console.log(errorResponse.data);
     		});
@@ -65,7 +67,9 @@
 		}
 
 		function openConvo(convoIndex) {
-			vm.convoInFocus = vm.conversations[convoIndex];
+			if(convoIndex){
+				vm.convoInFocus = vm.conversations[convoIndex];
+			}
       vm.channel = pusher.subscribe(vm.convoInFocus._id);
       vm.channel.bind('newMessage', function(data) {
         angular.element("html, body").animate({ scrollTop: angular.element(document).height() }, 1000);

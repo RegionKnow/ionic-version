@@ -16,6 +16,8 @@
   <!-- ionic/angularjs js -->
   <script src="lib/jquery/dist/jquery.min.js"></script>
   <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+  <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
   <script src="lib/ionic-material/dist/ionic.material.js"></script>
   <script src="lib/angular-material/angular-material.js"></script>
   <script src="lib/angular-aria/angular-aria.min.js"></script>
@@ -24,8 +26,8 @@
 
 
   <!-- cordova script (this will be a 404 during development) -->
-  <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
-  <script src="cordova.js"></script>
+  <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+  <!-- <script src="cordova.js"></script> -->
   <!-- your app's js -->
   <script src="js/app.js"></script>
   <script src="js/fab.js"></script>
@@ -104,7 +106,9 @@
   <div class="col"></div>
   <div class="col text-center">
 
+
     <img ng-src="{{global.status._user.image || &apos;http://img3.wikia.nocookie.net/__cb20120915054011/fmabyond/images/0/0b/Blank_avatar_240x240.gif&apos;}}" height="100px" width="100px">
+
 
     <br>
     <center style="font-size: 1.3em;">{{global.status._user.username}}</center>

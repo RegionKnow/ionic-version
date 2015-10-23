@@ -95,11 +95,11 @@ Question Detail
 	<div>
 		<br>
 		<ion ng-show="answerOptions">
-			<div class="row"><button class="button ink ion-chatboxes button-block">&nbsp;MESSAGE THIS ANSWERER</button></div>
-			
+			<div class="row"><button ui-sref='Messages({recipient: a.postedBy})' class="button ink ion-chatboxes button-block">&nbsp;MESSAGE THIS ANSWERER</button></div>
+
 
 			<br>
-			
+
 			<div class="row">
 				<i  class="col ink button-outline button-block" ng-click="editAnswer = true">EDIT ANSWER</i>
 
@@ -124,4 +124,3 @@ Question Detail
 	<i class="icon ion ion-android-add"></i>
 </fab-button>
 </ion-view>
-
