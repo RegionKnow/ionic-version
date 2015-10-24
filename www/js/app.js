@@ -13,7 +13,7 @@ angular.module('regiknow', ['ionic', 'ionic.service.core', 'ionic.service.push',
       var push = PushNotification.init({
         "android": {
           "senderID": "484030355290",
-          'iconColor': '#26a69a'
+          'iconColor': '#fff'
         }
       });
 
@@ -23,7 +23,7 @@ angular.module('regiknow', ['ionic', 'ionic.service.core', 'ionic.service.push',
       });
 
       push.on('notification', function(data) {
-        console.log("Notification: %s");
+        console.log("Notification:");
         console.log(data);
         // data.message,
         // data.title,
