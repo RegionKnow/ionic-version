@@ -4,8 +4,13 @@
 <p  class="spacer"></p>
 <ion-header><h3 class="title">Please Register</h3></ion-header>
 
+<swipe-cards>
+<swipe-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-card-swipe="cardSwiped($index)">
+Card content here
+</swipe-card>
+</swipe-cards>
 
-
+<!-- 
 <ion class="list">
 
 	<label class="item item-input">
@@ -30,7 +35,7 @@
 
 <div ng-click="global.registerUser()">
 	<h3 class="title button button-block ink button-raised">Register</h3>
-</div>
+</div> -->
 
 </ion-content>
 </ion-view>
