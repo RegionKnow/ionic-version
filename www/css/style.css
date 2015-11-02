@@ -1,10 +1,11 @@
 /* Empty. Add your own CSS if you like */
-
-
 ion-content {
 	padding-left: 1em;
 	padding-right: 1em;
 }
+
+.slider { height: 100%; text-align: center }
+.scroll { height: 100% }
 /*LINK STYLES============================================================*/
 a {
 	text-decoration: none;

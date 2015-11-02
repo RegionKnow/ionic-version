@@ -42,11 +42,17 @@
 <hr>
 
 <!-- FILTERING FOR QUESTIONS FEED BY TAGS======================================== -->
-<ion>
+<!-- <ion>
 	<h4>Do you want to filter the questions you see by certain categories?</h4>
 	<button class="button button-assertive button-outline ink" ng-click="vm.filterOff(); filtering = false;">No</button>
 	<button class="button button-balanced button-outline ink" ng-click="vm.filterOn(); filtering = true;">Yes</button>
-</ion>
+
+</ion> -->
+
+<ion-toggle ng-model="vm.status" ng-change='vm.filterOn(vm.status)'>
+Turn question filtering on
+</ion-toggle>
+
 
 <ion class="item item-input" ng-show="filtering">
 	<input type="text" placeholder="Type categories of questions you can answer..." ng-model="vm.tag"/>
@@ -89,6 +95,6 @@
 
 </ion-content>
 <fab-button ui-sref="CreateQuestion" target-id="scrollFabButtonTarget">
-	<i class="icon ion ion-android-add"></i>
+<i class="icon ion ion-android-add"></i>
 </fab-button>
 </ion-view>
